@@ -1,0 +1,116 @@
+"===================================
+" Setup Plugins
+"===================================
+
+"-----------------------------------
+" Setup NeoBundle
+"-----------------------------------
+if has('vim_starting')
+  if has('win32') || has('win64')
+    set runtimepath+=~/vimfiles/bundle/neobundle.vim/
+    call neobundle#rc(expand('~/vimfiles/bundle/'))
+  else
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
+    call neobundle#rc(expand('~/.vim/bundle/'))
+  endif
+endif
+
+
+"-----------------------------------
+" NeoBundle
+"-----------------------------------
+" プラグインの管理プラグイン
+NeoBundle 'Shougo/neobundle.vim'
+
+
+"-----------------------------------
+" vim-scripts on github
+"-----------------------------------
+" テキストの整形
+NeoBundle 'Align'
+
+" テキストの移動 (<Leader><Leader>w)
+NeoBundle 'EasyMotion'
+
+" l9 is a Vim-script library, which provides some utility functions and commands
+" for programming in Vim.
+NeoBundle 'L9'
+
+" RSTの表整形
+NeoBundle 'RST-Tables-CJK'
+
+" Tagを表示する (ctags必須)
+NeoBundle 'Tagbar'
+
+" コメント処理 (<Leader>c<space>)
+NeoBundle 'The-NERD-Commenter'
+
+" ファイルツリー表示
+NeoBundle 'The-NERD-tree'
+
+" Gitプラグイン (Gstatus, Gdiff, Gread, Gwrite. 後は help fugitive)
+NeoBundle 'fugitive.vim'
+
+" JavaのOmni保管用プラグイン
+" vimでJavaを書くことがないのでコメントアウト中
+" NeoBundle 'javacomplete'
+
+" バッファを表示する小さなウィンドウを表示
+NeoBundle 'minibufexpl.vim'
+
+" pyflakesを自動的に実行してエラーを表示する
+NeoBundle 'pyflakes.vim'
+" TODO pep8用のプラグインも入れたいな
+
+" 開いているファイルを実行する. スクリプト書いてる時に便利
+" <Leader>r
+NeoBundle 'quickrun.vim'
+
+" リファレンスを参照する
+NeoBundle 'ref.vim'
+
+" Vimの再起動を可能にする
+NeoBundle 'restart.vim'
+
+" Ruby開発用
+NeoBundle 'ruby.vim'
+
+" sudo vim の代わりに vim sudo:/path/to/file で開くといい感じになるプラグイン
+NeoBundle 'sudo.vim'
+
+" テキストオブジェクトの拡張 囲んでいるモノを対象にできる
+" 参考: http://doruby.kbmj.com/aisi/20100310/surround.vim__ 一番わかり易い
+NeoBundle 'surround.vim'
+
+
+"-----------------------------------
+" vim plugin on github
+"-----------------------------------
+" solarized 目に優しく見やすいカラースキーマ
+NeoBundle 'altercation/vim-colors-solarized'
+
+" markdown 形式のファイルの編集
+NeoBundle 'tpope/vim-markdown'
+
+" インデントを可視化する（Pythonとかで便利）
+NeoBundle 'nathanaelkane/vim-indent-guides'
+
+" 高度なファイラー
+NeoBundle 'Shougo/vimfiler'
+
+" vimにシェル
+if has('unix')
+  NeoBundle 'Shougo/vimproc'
+  " required: cd ~/.vim/bundle/vimproc && make -f your_machines_makefile
+  NeoBundle 'Shougo/vimshell'
+endif
+
+" EmacsでいうEverything
+NeoBundle 'Shougo/unite.vim'
+
+" 補完
+NeoBundle 'Shougo/neocomplcache'
+
+" neocomplcacheのsnippet補完
+NeoBundle 'Shougo/neocomplcache-snippets-complete'
+

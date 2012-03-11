@@ -1,0 +1,19 @@
+"===================================
+" key mappings.
+"===================================
+
+" Exit Insert Mode.
+"nmap <C-c> <ESC>
+"nmap <C-@> <ESC>
+
+" Move Windows.
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
+
+
+" turn off search highlight.
+nmap <ESC><ESC> :nohlsearch<CR><ESC>
+
+

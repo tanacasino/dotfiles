@@ -1,0 +1,5 @@
+.vim/.*
+.vim/backup/*~
+.vim/bundle/*
+.vim/swap/*.swp
+

@@ -1,0 +1,22 @@
+[user]
+	name = tanacasino
+	email = tanacasino@gmail.com
+
+[color]
+	ui = true
+
+[alias]
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
+	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+
+[core]
+	excludesfile = ~/.gitignore
+	editor = vim
+	autoCRLF = false
+
+[gui]
+	encoding = utf-8
+

@@ -1,0 +1,21 @@
+"-----------------------------------
+" Backup and Swap
+"-----------------------------------
+" バックアップ
+set backup
+" バックアップファイルの作成場所
+if has('win32') || has('win64')
+    set backupdir=~/vimfiles/backup/
+else
+    set backupdir=~/.vim/backup/
+endif
+
+" スワップファイル
+set swapfile
+" スワップファイルの作成場所
+if has('win32') || has('win64')
+    set directory=~/vimfiles/swap/
+else
+    set directory=~/.vim/swap/
+endif
+

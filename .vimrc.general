@@ -1,0 +1,87 @@
+"===================================
+" General settings.
+"===================================
+
+"-----------------------------------
+" Basic
+"-----------------------------------
+" シンタックスハイライト
+syntax on
+" ファイルタイププラグライン
+filetype plugin on
+" ファイルタイププラグインによるインデント
+filetype plugin indent on
+" 縦分割をする際、新しいウィンドウを右側に作る
+set splitright
+
+
+"-----------------------------------
+" View
+"-----------------------------------
+" カラースキーム
+if !has("gui_running")
+  colorscheme desertEx
+endif
+
+" 行番号の表示
+set number
+" 空白文字の表示
+set list
+set listchars=tab:>.,extends:<,trail:-,eol:<
+" カーソル行をハイライト
+set cursorline
+" カレントウィンドウにのみ罫線を引く
+augroup cch
+autocmd! cch
+autocmd WinLeave * set nocursorline
+autocmd WinEnter,BufRead * set cursorline
+augroup END
+:hi clear CursorLine
+:hi CursorLine gui=underline
+highlight CursorLine ctermbg=black guibg=black
+" 折り返し表示
+set wrap
+"set nowrap
+" メニュー
+set wildmenu
+" コマンドライン行
+set cmdheight=2
+" コマンドをステータス行に表示
+set showcmd
+" ステータスライン
+set laststatus=2
+" ステータスラインの表示項目
+set statusline=%<%f\ %m%r%h%w%y%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
+" タイトルを表示
+set title
+" 括弧入力時に対応する括弧を表示 (noshowmatch:表示しない)
+set showmatch
+
+
+"-----------------------------------
+" Search
+"-----------------------------------
+" インクリメンタルサーチ
+set incsearch
+" 大文字小文字を区別しない
+set ignorecase
+" 大文字と小文字の両方が入力された場合のみ区別する
+set smartcase
+" 検索文字をハイライトする
+set hlsearch
+" 最終行まで検索したら先頭行に戻る
+set wrapscan
+
+
+"-----------------------------------
+" Edit
+"-----------------------------------
+set backspace=indent,eol,start
+" yankの内容をクリップボードに反映させる.
+set clipboard+=unnamed,autoselect
+" Pythonのimport文のソースファイルをgfで開く
+autocmd FileType python setlocal includeexpr=FormatPyImport(v:fname) | setlocal path+=;/
+function! FormatPyImport(str)
+    return substitute(substitute(substitute(a:str, '^from \|^import ', '', ''), 'import \a\+', '', ''), '\.', '\/', 'g')
+endfunction
+
