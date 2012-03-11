@@ -11,14 +11,13 @@ source $VIMRUNTIME/menu.vim
 set guioptions-=T
 
 " カラースキーマ
-"colorscheme tanacasino
 colorscheme solarized
 set background=dark
 
 " フォント
 if has('win32')
-    set guifont=Migu_1M:h12:cSHIFTJIS
+  set guifont=Migu_1M:h12:cSHIFTJIS
 else
-    set guifont=Migu\ 1M\ 12
+  set guifont=Migu\ 1M\ 12
 endif
 
