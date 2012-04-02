@@ -41,23 +41,28 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 
-# PATH
-export PATH=${HOME}/bin:${PATH}
+### PATH ###
+export PATH=${HOME}/bin:${HOME}/local/bin:${PATH}
 
 
-# Alias
+### Alias ###
 alias ls='ls --color=auto'
-alias ll='ls -alF'
+alias ll='ls -lF'
 alias lh='ll -h'
 alias la='ls -A'
+alias lla='ls -AlF'
 alias l='ls -CF'
 
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
-# Environment Variables
+
+### Environment Variables ###
 export EDITOR=vim
 
+
+### Other ###
+# RVM
 [[ -s "${HOME}/.rvm/scripts/rvm" ]] && source "${HOME}/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
