@@ -42,7 +42,11 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 
 ### PATH ###
-export PATH=${HOME}/bin:${HOME}/local/bin:${PATH}
+typeset -U path
+path=($HOME/bin(N-/)
+      $HOME/local/bin(N-/)
+      $path
+      )
 
 
 ### Alias ###
@@ -65,4 +69,3 @@ export EDITOR=vim
 ### Other ###
 # RVM
 [[ -s "${HOME}/.rvm/scripts/rvm" ]] && source "${HOME}/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
