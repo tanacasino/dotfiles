@@ -80,7 +80,13 @@ set wrapscan
 "-----------------------------------
 set backspace=indent,eol,start
 " yankの内容をクリップボードに反映させる.
-set clipboard+=unnamed,autoselect
+set clipboard+=unnamed
+" Visualモードで選択したテキストをクリップボードに入れる
+if has("gui_running")
+  set guioptions+=a
+else
+  set clipboard+=autoselect
+endif
 " Pythonのimport文のソースファイルをgfで開く
 if has("autocmd")
   autocmd FileType python setlocal includeexpr=FormatPyImport(v:fname) | setlocal path+=;/
