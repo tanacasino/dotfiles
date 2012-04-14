@@ -24,6 +24,7 @@ class Color(object):
                 self.name = unicode(name, 'utf-8')
         else:
             self.name = Color.DEFAULT_COLOR
+
     def print_color(self):
         """80 width check --------------------------------------------------"""
         # TODO エンコード処理を入れないとリダイレクト時にエラーになる.
