@@ -60,8 +60,12 @@ NeoBundle 'fugitive.vim'
 NeoBundle 'minibufexpl.vim'
 
 " pyflakesを自動的に実行してエラーを表示する
-NeoBundle 'pyflakes.vim'
+"NeoBundle 'pyflakes.vim'
 " TODO pep8用のプラグインも入れたいな
+
+" syntaxチェック(pythonのために導入)
+" 不要なファイルタイプの場合はOFFにするように絞ったほうが良さげ
+NeoBundle "scrooloose/syntastic"
 
 " 開いているファイルを実行する. スクリプト書いてる時に便利
 " <Leader>r
@@ -114,4 +118,3 @@ NeoBundle 'Shougo/neocomplcache'
 
 " neocomplcacheのsnippet補完
 NeoBundle 'Shougo/neocomplcache-snippets-complete'
-
