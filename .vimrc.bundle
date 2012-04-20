@@ -61,7 +61,6 @@ NeoBundle 'minibufexpl.vim'
 
 " pyflakesを自動的に実行してエラーを表示する
 "NeoBundle 'pyflakes.vim'
-" TODO pep8用のプラグインも入れたいな
 
 " syntaxチェック(pythonのために導入)
 " 不要なファイルタイプの場合はOFFにするように絞ったほうが良さげ
