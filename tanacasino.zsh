@@ -4,17 +4,16 @@
 bindkey -e
 
 # historyの設定
-HISTSIZE=10000
-SAVEHIST=10000
-HISTFILE=~/.zsh_history
-
+# 複数シェル間でヒストリーを共有しない
+setopt no_inc_append_history
 
 ### PATH ###
 typeset -U path
-path=($HOME/bin(N-/)
+path=(
+      $HOME/bin(N-/)
       $HOME/local/bin(N-/)
       $path
-      )
+     )
 
 
 ### Alias ###
