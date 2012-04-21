@@ -27,4 +27,3 @@ source ~/.vimrc.completion
 
 " Setup Plugin
 source ~/.vimrc.plugin
-

@@ -18,4 +18,3 @@ nnoremap <C-h> <C-w>h
 
 " turn off search highlight.
 nmap <ESC><ESC> :nohlsearch<CR><ESC>
-

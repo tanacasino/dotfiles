@@ -18,4 +18,3 @@ if has('win32') || has('win64')
 else
   set directory=~/.vim/swap/
 endif
-

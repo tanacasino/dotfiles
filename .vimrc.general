@@ -27,6 +27,7 @@ endif
 set number
 " 空白文字の表示
 set list
+" 空白文字の表示文字
 set listchars=tab:>.,extends:<,trail:-,eol:<
 " カーソル行をハイライト
 set cursorline
@@ -94,4 +95,3 @@ if has("autocmd")
     return substitute(substitute(substitute(a:str, '^from \|^import ', '', ''), 'import \a\+', '', ''), '\.', '\/', 'g')
   endfunction
 endif
-
