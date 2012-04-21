@@ -47,7 +47,6 @@ inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplcache#close_popup()
 inoremap <expr><C-e>  neocomplcache#cancel_popup()
 
-
 " Enable heavy omni completion.
 if !exists('g:neocomplcache_omni_patterns')
   let g:neocomplcache_omni_patterns = {}
@@ -89,7 +88,17 @@ let g:miniBufExplMaxSize = 5
 "-----------------------------------
 " pyflakes
 "-----------------------------------
-let g:pyflakes_use_quickfix = 0
+" 現在は syntastic によってチェックしているのでパス
+"let g:pyflakes_use_quickfix = 0
+
+
+"-----------------------------------
+" syntastic
+"-----------------------------------
+" ファイルをオープン時にチェックする
+let g:syntastic_check_on_open = 1
+" ファイルを保存するときにだけチェックする
+"let g:syntastic_check_on_open = 0
 
 
 "-----------------------------------
@@ -99,4 +108,3 @@ let g:indent_guides_enable_on_vim_startup = 0
 let g:indent_guides_guide_size = 1
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=black ctermbg=black
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=darkgray ctermbg=darkgray
-
