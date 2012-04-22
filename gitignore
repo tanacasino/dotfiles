@@ -1,0 +1,8 @@
+# for global gitignore
+# $HOME/.gitignore
+
+# tag file
+tags
+
+# virtualenv
+pyenv

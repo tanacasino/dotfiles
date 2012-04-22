@@ -40,3 +40,6 @@ for dotfile in $DOTFILES
 do
     ln -is "${CONF_HOME}/${dotfile}" ${HOME}/
 done
+
+# gitignore
+ln -is "${CONF_HOME}/gitignore" ${HOME}/.gitignore
