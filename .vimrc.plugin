@@ -5,6 +5,8 @@
 "-----------------------------------
 " neocomplcache
 "-----------------------------------
+" 補完機能の設定
+" NOTE ほとんどどっかのコピペなので整理が必要
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
 " Use neocomplcache.
@@ -74,30 +76,11 @@ let NERDShutUp=1
 
 
 "-----------------------------------
-" minibufexpl
-"-----------------------------------
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplSplitBelow=0
-let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBuffs = 1
-let g:miniBufExplModSelTarget=1
-let g:miniBufExplSplitToEdge=1
-let g:miniBufExplMaxSize = 5
-
-
-"-----------------------------------
-" pyflakes
-"-----------------------------------
-" 現在は syntastic によってチェックしているのでパス
-"let g:pyflakes_use_quickfix = 0
-
-
-"-----------------------------------
 " syntastic
 "-----------------------------------
-" ファイルをオープン時にチェックする
+" ファイルオープン時にチェックする
 let g:syntastic_check_on_open = 1
-" ファイルを保存するときにだけチェックする
+" ファイルオープン時はチェックしない(ファイル保存時にチェックする)
 "let g:syntastic_check_on_open = 0
 
 
@@ -108,3 +91,20 @@ let g:indent_guides_enable_on_vim_startup = 0
 let g:indent_guides_guide_size = 1
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=black ctermbg=black
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=darkgray ctermbg=darkgray
+
+
+"-----------------------------------
+" YankRing
+"-----------------------------------
+let g:yankring_history_dir = expand('$HOME')
+let g:yankring_history_file = '.yankring_history'
+let g:yankring_max_history = 10
+let g:yankring_window_height = 13
+
+
+"-----------------------------------
+" visualstar
+"-----------------------------------
+" 検索時に移動しない
+map * <Plug>(visualstar-*)N
+map # <Plug>(visualstar-#)N

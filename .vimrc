@@ -19,10 +19,10 @@ source ~/.vimrc.backup
 " Setup Indent
 source ~/.vimrc.indent
 
-" Setup keymap
+" Setup Keymap
 source ~/.vimrc.keymap
 
-" Setup completion
+" Setup Completion
 source ~/.vimrc.completion
 
 " Setup Plugin

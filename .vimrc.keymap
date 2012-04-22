@@ -1,6 +1,7 @@
 "===================================
 " key mappings.
 "===================================
+" pluginのキーマップは .vimrc.pluginに書く
 
 " Exit Insert Mode.
 "nmap <C-c> <ESC>

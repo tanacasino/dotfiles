@@ -14,8 +14,10 @@ if has('vim_starting')
     call neobundle#rc(expand('~/.vim/bundle/'))
   endif
 endif
-
+" gitレポジトリからインストールする際のプロトコル
+" 職場などproxy環境もあるのでhttpにする
 let g:neobundle_default_git_protocol = 'http'
+
 
 "-----------------------------------
 " NeoBundle
@@ -30,15 +32,34 @@ NeoBundle 'Shougo/neobundle.vim'
 " テキストの整形
 NeoBundle 'Align'
 
-" テキストの移動 (<Leader><Leader>w)
-NeoBundle 'EasyMotion'
+" ディレクトリ同士を再帰的に比較する
+NeoBundle 'DirDiff.vim'
+
+" Gitプラグイン (Gstatus, Gdiff, Gread, Gwrite. 後は help fugitive)
+NeoBundle 'fugitive.vim'
 
 " l9 is a Vim-script library, which provides some utility functions and commands
 " for programming in Vim.
 NeoBundle 'L9'
 
-" RSTの表整形
-NeoBundle 'RST-Tables-CJK'
+" 開いているファイルを実行する. スクリプト書いてる時に便利
+" <Leader>r
+NeoBundle 'quickrun.vim'
+
+" リファレンスを参照する
+" command : Ref pydoc os
+NeoBundle 'ref.vim'
+
+" Ruby開発用
+NeoBundle 'ruby.vim'
+
+" sudo vim の代わりに vim sudo:/path/to/file で開くといい感じになるプラグイン
+" 開いているファイルをsudoし直すのもOK
+NeoBundle 'sudo.vim'
+
+" テキストオブジェクトの拡張 囲んでいるモノを対象にできる
+" 参考: http://doruby.kbmj.com/aisi/20100310/surround.vim__ 一番わかり易い
+NeoBundle 'surround.vim'
 
 " Tagを表示する (ctags必須)
 NeoBundle 'Tagbar'
@@ -49,42 +70,8 @@ NeoBundle 'The-NERD-Commenter'
 " ファイルツリー表示
 NeoBundle 'The-NERD-tree'
 
-" Gitプラグイン (Gstatus, Gdiff, Gread, Gwrite. 後は help fugitive)
-NeoBundle 'fugitive.vim'
-
-" JavaのOmni保管用プラグイン
-" vimでJavaを書くことがないのでコメントアウト中
-" NeoBundle 'javacomplete'
-
-" バッファを表示する小さなウィンドウを表示
-NeoBundle 'minibufexpl.vim'
-
-" pyflakesを自動的に実行してエラーを表示する
-"NeoBundle 'pyflakes.vim'
-
-" syntaxチェック(pythonのために導入)
-" 不要なファイルタイプの場合はOFFにするように絞ったほうが良さげ
-NeoBundle "scrooloose/syntastic"
-
-" 開いているファイルを実行する. スクリプト書いてる時に便利
-" <Leader>r
-NeoBundle 'quickrun.vim'
-
-" リファレンスを参照する
-NeoBundle 'ref.vim'
-
-" Vimの再起動を可能にする
-NeoBundle 'restart.vim'
-
-" Ruby開発用
-NeoBundle 'ruby.vim'
-
-" sudo vim の代わりに vim sudo:/path/to/file で開くといい感じになるプラグイン
-NeoBundle 'sudo.vim'
-
-" テキストオブジェクトの拡張 囲んでいるモノを対象にできる
-" 参考: http://doruby.kbmj.com/aisi/20100310/surround.vim__ 一番わかり易い
-NeoBundle 'surround.vim'
+" yank拡張 履歴保存 履歴から貼り付け
+NeoBundle 'YankRing.vim'
 
 
 "-----------------------------------
@@ -96,24 +83,49 @@ NeoBundle 'altercation/vim-colors-solarized'
 " markdown 形式のファイルの編集
 NeoBundle 'tpope/vim-markdown'
 
-" インデントを可視化する（Pythonとかで便利）
+" 選択した文字列で検索する
+NeoBundle 'thinca/vim-visualstar'
+
+" QuickFixの内容を編集し一括適用する
+" command : Qfreplace
+NeoBundle 'thinca/vim-qfreplace'
+
+" インデントを可視化する(Pythonとかで便利)
+" command : IndentGuides*
 NeoBundle 'nathanaelkane/vim-indent-guides'
 
-" 高度なファイラー
-NeoBundle 'Shougo/vimfiler'
+" syntaxチェック(pythonのために導入)
+" 不要なファイルタイプの場合はOFFにするように絞ったほうが良さげ
+" TODO gettextの _ が undefineのwarnになるのを防ぎたい
+NeoBundle 'scrooloose/syntastic'
 
-" vimにシェル
-if has('unix')
-  NeoBundle 'Shougo/vimproc'
-  " required: cd ~/.vim/bundle/vimproc && make -f your_machines_makefile
-  NeoBundle 'Shougo/vimshell'
-endif
-
-" EmacsでいうEverything
-NeoBundle 'Shougo/unite.vim'
+" vim-emacscommandline
+" コマンドラインモードの際にEmacs/readlineのキーバインドが使える
+" Ex. C-a,C-e,C-f,C-n,C-d,C-hなどの移動・操作ができる
+" M-r でC-r相当のコマンド履歴のインクリメンタルサーチ
+NeoBundle 'houtsnip/vim-emacscommandline'
 
 " 補完
 NeoBundle 'Shougo/neocomplcache'
 
 " neocomplcacheのsnippet補完
 NeoBundle 'Shougo/neocomplcache-snippets-complete'
+
+" 同じインタフェースでファイル検索、選択、バッファ選択、grepなどができる
+" NOTE 全然使いこなせてないのでがんばって練習しよう
+" command : Unite file, Unite buffer, Unite file buffer
+NeoBundle 'Shougo/unite.vim'
+
+" 高機能なファイラー
+" command : VimFiler
+" NOTE 全然使いこなせてないのでがんばって練習しよう
+NeoBundle 'Shougo/vimfiler'
+
+" vimにシェル
+" NOTE 全然使いこなせてないのでがんばって練習しよう
+" command : VimShell
+if has('unix')
+  NeoBundle 'Shougo/vimproc'
+  " required: cd ~/.vim/bundle/vimproc && make -f your_machines_makefile
+  NeoBundle 'Shougo/vimshell'
+endif
