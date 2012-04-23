@@ -83,6 +83,9 @@ NeoBundle 'altercation/vim-colors-solarized'
 " markdown 形式のファイルの編集
 NeoBundle 'tpope/vim-markdown'
 
+" textile 形式のファイルの編集
+NeoBundle 'timcharper/textile.vim'
+
 " 選択した文字列で検索する
 NeoBundle 'thinca/vim-visualstar'
 
