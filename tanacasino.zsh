@@ -28,6 +28,8 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
+alias ipython='PAGER="less -r" ipython'
+
 
 ### Environment Variables ###
 export EDITOR=vim
