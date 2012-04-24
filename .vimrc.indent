@@ -40,4 +40,5 @@ if has("autocmd")
   autocmd FileType gitconfig  setlocal sw=4 sts=4 ts=4 noet
   autocmd FileType markdown   setlocal sw=4 sts=4 ts=4 noet tw=0
   autocmd FileType rst        setlocal sw=4 sts=4 ts=4 noet tw=0
+  autocmd FileType textile    setlocal sw=4 sts=4 ts=4 noet tw=0
 endif
