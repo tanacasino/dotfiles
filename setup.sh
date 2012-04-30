@@ -16,6 +16,7 @@ then
     git clone https://github.com/robbyrussell/oh-my-zsh.git ${OH_MY_ZSH}
     ln -is "${CONF_HOME}/tanacasino.zsh" ${OH_MY_ZSH}/custom/
     ln -is "${CONF_HOME}/tanacasino.zsh-theme" ${OH_MY_ZSH}/themes/
+    ln -is "${CONF_HOME}/.zshrc" ${HOME}/
 fi
 
 
