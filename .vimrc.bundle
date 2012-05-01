@@ -108,6 +108,9 @@ NeoBundle 'scrooloose/syntastic'
 " M-r でC-r相当のコマンド履歴のインクリメンタルサーチ
 NeoBundle 'houtsnip/vim-emacscommandline'
 
+" ステータスラインを素敵な表示にする
+NeoBundle 'Lokaltog/vim-powerline'
+
 " 補完
 NeoBundle 'Shougo/neocomplcache'
 

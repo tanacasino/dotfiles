@@ -14,34 +14,29 @@ filetype plugin indent on
 " 縦分割をする際、新しいウィンドウを右側に作る
 set splitright
 
-
 "-----------------------------------
 " View
 "-----------------------------------
-" カラースキーム
+" カラー
+" FIXME background=dark が望みどおりの色になっていない。なぜ？
 if !has("gui_running")
-  colorscheme desertEx
+  if !has("win32")
+    set t_Co=256
+    let g:solarized_termcolors=256
+  endif
+  set background=dark
+  colorscheme solarized
 endif
+
 
 " 行番号の表示
 set number
 " 空白文字の表示
 set list
 " 空白文字の表示文字
-set listchars=tab:>.,extends:<,trail:-,eol:<
+set listchars=tab:>.,extends:<,trail:_,eol:<
 " カーソル行をハイライト
 set cursorline
-" カレントウィンドウにのみ罫線を引く
-if has("autocmd")
-  augroup cch
-  autocmd! cch
-  autocmd WinLeave * set nocursorline
-  autocmd WinEnter,BufRead * set cursorline
-  augroup END
-  :hi clear CursorLine
-  :hi CursorLine gui=underline
-  highlight CursorLine ctermbg=black guibg=black
-endif
 " 折り返し表示
 set wrap
 "set nowrap
@@ -53,13 +48,12 @@ set cmdheight=2
 set showcmd
 " ステータスライン
 set laststatus=2
-" ステータスラインの表示項目
-set statusline=%<%f\ %m%r%h%w%y%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
 " タイトルを表示
 set title
 " 括弧入力時に対応する括弧を表示 (noshowmatch:表示しない)
 set showmatch
-
+" 全角記号の表示用 (gnome-terminalでは残念ながら潰れる)
+set ambiwidth=double
 
 "-----------------------------------
 " Search
