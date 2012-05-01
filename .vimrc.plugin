@@ -79,9 +79,9 @@ let NERDShutUp=1
 " syntastic
 "-----------------------------------
 " ファイルオープン時にチェックする
-let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_open = 1
 " ファイルオープン時はチェックしない(ファイル保存時にチェックする)
-"let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_open = 0
 
 
 "-----------------------------------
