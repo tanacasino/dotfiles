@@ -11,8 +11,9 @@ source $VIMRUNTIME/menu.vim
 set guioptions-=T
 
 " カラースキーマ
+set background=light
+"set background=dark
 colorscheme solarized
-set background=dark
 
 " フォント
 if has('win32')
@@ -20,4 +21,3 @@ if has('win32')
 else
   set guifont=Migu\ 1M\ 12
 endif
-
