@@ -41,4 +41,4 @@ export EDITOR=vim
 # RVM
 [[ -s "${HOME}/.rvm/scripts/rvm" ]] && source "${HOME}/.rvm/scripts/rvm"
 # python-pip cache
-export PIP_DOWNLOAD_CACHE=$HOME/.pip.cache
+export PIP_DOWNLOAD_CACHE=$HOME/.pip-cache
