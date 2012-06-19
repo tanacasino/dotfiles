@@ -121,3 +121,11 @@ let g:unite_source_grep_max_candidates = 300
 nnoremap <silent> Uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 nnoremap <silent> Ub :<C-u>Unite buffer<CR>
 nnoremap <silent> Um :<C-u>Unite file_mru<CR>
+
+
+"-----------------------------------
+" VimFiler
+"-----------------------------------
+command Vf VimFiler -buffer-name=explorer -split -simple -winwidth=35 -toggle -no-quit
+nnoremap <silent> Uv :<C-u>Vf<CR>
+

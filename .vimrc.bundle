@@ -45,7 +45,7 @@ NeoBundle 'matchit.zip'
 NeoBundle 'quickrun.vim'
 " リファレンスを参照する
 " command : Ref pydoc os
-NeoBundle 'ref.vim'
+NeoBundle 'thinca/vim-ref'
 " Ruby開発用
 NeoBundle 'ruby.vim'
 " sudo vim の代わりに vim sudo:/path/to/file で開くといい感じになるプラグイン

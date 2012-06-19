@@ -4,6 +4,7 @@
 
 " vi互換off
 set nocompatible
+filetype off
 filetype plugin indent off
 
 " Setup Bundle
