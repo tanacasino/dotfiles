@@ -1,11 +1,22 @@
-# zsh settings
-
+# my zsh settings
+### keybind ###
 # EDITORがvim設定の場合でもemacsキーバインドを使う(ex. Ctrl + Aで行頭とか)
 bindkey -e
 
-# historyの設定
+
+### history ###
 # 複数シェル間でヒストリーを共有しない
 setopt append_history no_inc_append_history no_share_history
+
+
+### nocorrect ###
+
+if [ -f ~/.zsh_nocorrect ]; then
+    while read -r COMMAND; do
+        alias $COMMAND="nocorrect $COMMAND"
+    done < ~/.zsh_nocorrect
+fi
+
 
 ### PATH ###
 typeset -U path
@@ -41,4 +52,4 @@ export EDITOR=vim
 # RVM
 [[ -s "${HOME}/.rvm/scripts/rvm" ]] && source "${HOME}/.rvm/scripts/rvm"
 # python-pip cache
-export PIP_DOWNLOAD_CACHE=$HOME/.pip-cache
+export PIP_DOWNLOAD_CACHE="$HOME/.pip-cache"
