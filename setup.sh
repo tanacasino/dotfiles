@@ -12,10 +12,11 @@ function usage {
     echo "Usage: $0 [OPTION]..."
     echo "Setup Environment"
     echo ""
-    echo "  -a, --apt        Install apt-packages"
-    echo "  -X, --xapt       Install apt-gui-packages"
-    echo "  -V, --no-vim     No install vim settings"
-    echo "  -G, --no-git     No install git settings"
+    echo "  -a, --apt          Install apt-packages"
+    echo "  -X, --xapt         Install apt-desktop-packages"
+    echo "  -V, --no-vim       No install vim settings"
+    echo "  -G, --no-git       No install git settings"
+    echo "  -O, --no-oh-my-zsh No install oh-my-zsh"
     echo "  -h, --help       Print this usage message"
     echo ""
 }
@@ -25,10 +26,11 @@ function usage {
 #########################
 function process_args {
     case "$1" in
-        -a|--apt)    apt=1;;
-        -x|--xapt)   xapt=1;;
-        -V|--no-vim) vim=0;;
-        -G|--no-git) git=0;;
+        -a|--apt)          apt=1;;
+        -x|--xapt)         xapt=1;;
+        -V|--no-vim)       vim=0;;
+        -G|--no-git)       git=0;;
+        -O|--no-oh-my-zsh) ohmyzsh=0;;
         -h|--help)   usage; exit 0;;
         *)           usage; exit 1;;
     esac
@@ -38,6 +40,7 @@ apt=0
 xapt=0
 vim=1
 git=1
+ohmyzsh=1
 
 for arg in "$@"; do
     process_args $arg
@@ -72,7 +75,7 @@ function apt_install() {
 #########################
 if [ is_ubuntu ]; then
     [[ $apt  == 1 ]] && apt_install apt-packages
-    [[ $xapt == 1 ]] && apt_install apt-gui-packages
+    [[ $xapt == 1 ]] && apt_install apt-desktop-packages
 fi
 
 
@@ -80,13 +83,18 @@ fi
 # Conf files
 #########################
 ### zsh ###
-OH_MY_ZSH=$HOME/.oh-my-zsh
-if [ ! -d $OH_MY_ZSH ]; then
-    git clone https://github.com/robbyrussell/oh-my-zsh.git "$OH_MY_ZSH"
-    linkit tanacasino.zsh       "$OH_MY_ZSH/custom/"
-    linkit tanacasino.zsh-theme "$OH_MY_ZSH/themes/"
-    linkit .zshrc               "$HOME/"
+if [ $ohmyzsh == 1 ]; then
+    OH_MY_ZSH=$HOME/.oh-my-zsh
+    if [ ! -d $OH_MY_ZSH ]; then
+        git clone https://github.com/robbyrussell/oh-my-zsh.git "$OH_MY_ZSH"
+        linkit tanacasino.zsh       "$OH_MY_ZSH/custom/"
+        linkit tanacasino.zsh-theme "$OH_MY_ZSH/themes/"
+        linkit .zshrc               "$HOME/"
+    fi
+else
+    linkit zshrc-without-oh-my-zsh "$HOME/.zshrc"
 fi
+
 
 ### vim ###
 VIMFILES=".vim .vimrc* .gvimrc"
@@ -99,9 +107,10 @@ if [ ! -d $NEO_BUNDLE ]; then
 fi
 
 ### Others(git, hg, GNU screen) ###
-DOTFILES=".hgrc .gitconfig"
-# when use byobu, no need screenrc
+DOTFILES=".hgrc .gitconfig .dir_colors"
+# when use byobu, no need screenrc and .tmux.conf
 #DOTFILES+=" .screenrc"
+DOTFILES+=" .tmux.conf"
 for dotfile in $DOTFILES; do
     linkit $dotfile $HOME/
 done

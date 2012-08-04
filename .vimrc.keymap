@@ -16,6 +16,8 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-h> <C-w>h
 
+" Leader key
+map ¥ <Leader>
 
 " turn off search highlight.
 nmap <ESC><ESC> :nohlsearch<CR><ESC>

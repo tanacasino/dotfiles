@@ -13,11 +13,16 @@ set guioptions-=T
 " カラースキーマ
 set background=light
 "set background=dark
-colorscheme solarized
+"colorscheme solarized
+"colorscheme desertEx
+colorscheme tanacasino
 
 " フォント
 if has('win32')
   set guifont=Migu_1M:h12:cSHIFTJIS
+elseif has('mac')
+  set guifont=Migu\ 1M\ regular:h14
+  "set guifont=ゆたぽん（コーディング）:h14
 else
   set guifont=Migu\ 1M\ 12
 endif

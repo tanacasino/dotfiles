@@ -47,7 +47,7 @@ NeoBundle 'quickrun.vim'
 " command : Ref pydoc os
 NeoBundle 'thinca/vim-ref'
 " Ruby開発用
-NeoBundle 'ruby.vim'
+NeoBundle 'vim-ruby/vim-ruby'
 " sudo vim の代わりに vim sudo:/path/to/file で開くといい感じになるプラグイン
 " 開いているファイルをsudoし直すのもOK
 NeoBundle 'sudo.vim'
@@ -61,8 +61,6 @@ NeoBundle 'majutsushi/tagbar'
 NeoBundle 'The-NERD-Commenter'
 " ファイルツリー表示
 NeoBundle 'The-NERD-tree'
-" yank拡張 履歴保存 履歴から貼り付け
-NeoBundle 'YankRing.vim'
 " solarized 目に優しく見やすいカラースキーマ
 NeoBundle 'altercation/vim-colors-solarized'
 " markdown 形式のファイルの編集

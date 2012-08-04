@@ -21,13 +21,12 @@ set splitright
 " FIXME background=dark が望みどおりの色になっていない。なぜ？
 set t_Co=256
 if !has("gui_running")
-  if !has("win32")
-    set t_Co=256
-    let g:solarized_termcolors=256
-  endif
-  set background=light
+  "let g:solarized_termcolors=256
+  "set background=light
   "set background=dark
-  colorscheme solarized
+  "colorscheme solarized
+  "colorscheme desertEx
+  colorscheme tanacasino
 endif
 
 
@@ -50,8 +49,8 @@ set cmdheight=2
 set showcmd
 " ステータスライン
 set laststatus=2
-" タイトルを表示
-set title
+" タイトルを表示しない
+set notitle
 " 括弧入力時に対応する括弧を表示 (noshowmatch:表示しない)
 set showmatch
 " 全角記号の表示用 (gnome-terminalでは残念ながら潰れる)
@@ -76,8 +75,6 @@ set wrapscan
 " Edit
 "-----------------------------------
 set backspace=indent,eol,start
-" yankの内容をクリップボードに反映させる.
-set clipboard+=unnamed
 " Visualモードで選択したテキストをクリップボードに入れる
 if has("gui_running")
   set guioptions+=a
