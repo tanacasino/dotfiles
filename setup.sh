@@ -108,7 +108,7 @@ fi
 
 ### Others(git, hg, GNU screen) ###
 DOTFILES=".hgrc .gitconfig .dir_colors"
-# when use byobu, no need screenrc and .tmux.conf
+# NOTE when use byobu, no need screenrc and .tmux.conf
 #DOTFILES+=" .screenrc"
 DOTFILES+=" .tmux.conf"
 for dotfile in $DOTFILES; do
