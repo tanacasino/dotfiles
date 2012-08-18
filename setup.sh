@@ -17,7 +17,7 @@ function usage {
     echo "  -V, --no-vim       No install vim settings"
     echo "  -G, --no-git       No install git settings"
     echo "  -O, --no-oh-my-zsh No install oh-my-zsh"
-    echo "  -h, --help       Print this usage message"
+    echo "  -h, --help         Print this usage message"
     echo ""
 }
 
@@ -31,8 +31,8 @@ function process_args {
         -V|--no-vim)       vim=0;;
         -G|--no-git)       git=0;;
         -O|--no-oh-my-zsh) ohmyzsh=0;;
-        -h|--help)   usage; exit 0;;
-        *)           usage; exit 1;;
+        -h|--help)         usage; exit 0;;
+        *)                 usage; exit 1;;
     esac
 }
 
