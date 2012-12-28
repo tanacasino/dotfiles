@@ -1,5 +1,5 @@
 [user]
-	name = tanacasino
+	name = Tomofumi Tanaka
 	email = tanacasino@gmail.com
 
 [color]
@@ -11,11 +11,13 @@
 	st = status
 	br = branch
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	sp = show --stat -p
 
 [core]
 	excludesfile = ~/.gitignore
 	editor = vim
 	autoCRLF = false
+	pager = less -R
 
 [gui]
 	encoding = utf-8
