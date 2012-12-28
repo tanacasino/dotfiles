@@ -3,6 +3,9 @@
 # EDITORがvim設定の場合でもemacsキーバインドを使う(ex. Ctrl + Aで行頭とか)
 bindkey -e
 
+# 日本語
+export LANG=ja_JP.UTF-8
+export LESSCHARSET=utf-8
 
 ### history ###
 # 複数シェル間でヒストリーを共有しない
