@@ -19,6 +19,7 @@ endif
 
 " gitレポジトリをcloneする際のプロトコル
 " proxy環境もあるのでhttpにする
+" デフォルトは git が使用される
 let g:neobundle_default_git_protocol = 'http'
 
 
@@ -49,7 +50,7 @@ NeoBundle 'thinca/vim-ref'
 " Ruby開発用
 NeoBundle 'vim-ruby/vim-ruby'
 " sudo vim の代わりに vim sudo:/path/to/file で開くといい感じになるプラグイン
-" 開いているファイルをsudoし直すのもOK
+" 開いているファイルをsudoで開き直して使うこともできる
 NeoBundle 'sudo.vim'
 " テキストオブジェクトの拡張 囲んでいるモノを対象にできる
 " 参考: http://doruby.kbmj.com/aisi/20100310/surround.vim__ 一番わかり易い
@@ -86,7 +87,7 @@ NeoBundle 'Lokaltog/vim-powerline'
 " 補完
 NeoBundle 'Shougo/neocomplcache'
 " neocomplcacheのsnippet補完
-NeoBundle 'Shougo/neocomplcache-snippets-complete'
+NeoBundle 'Shougo/neosnippet'
 " 同じインタフェースでファイル検索、選択、バッファ選択、grepなどができる
 NeoBundle 'Shougo/unite.vim'
 " 高機能なファイラー
