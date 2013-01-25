@@ -64,6 +64,7 @@ alias ipython='PAGER="less -r" ipython'
 
 alias gshow='git show --stat -p'
 
+alias vissh='vim $HOME/.ssh/config'
 
 ### Environment Variables ###
 export EDITOR=vim
