@@ -11,6 +11,8 @@ export LESSCHARSET=utf-8
 # 複数シェル間でヒストリーを共有しない
 setopt append_history no_inc_append_history no_share_history
 
+# 右プロンプトの表示が常に1つになるように
+setopt transient_rprompt
 
 ### nocorrect ###
 
@@ -59,6 +61,8 @@ alias egrep='egrep --color=auto'
 alias hist='history'
 
 alias ipython='PAGER="less -r" ipython'
+
+alias gshow='git show --stat -p'
 
 
 ### Environment Variables ###
