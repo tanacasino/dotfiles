@@ -90,6 +90,7 @@ if [ $ohmyzsh == 1 ]; then
         linkit tanacasino.zsh       "$OH_MY_ZSH/custom/"
         linkit tanacasino.zsh-theme "$OH_MY_ZSH/themes/"
         linkit .zshrc               "$HOME/"
+        linkit .zsh_nocorrect       "$HOME/"
     fi
 else
     linkit zshrc-without-oh-my-zsh "$HOME/.zshrc"
