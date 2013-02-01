@@ -98,3 +98,5 @@ if has('unix')
   " required: cd ~/.vim/bundle/vimproc && make -f your_machines_makefile
   NeoBundle 'Shougo/vimshell'
 endif
+" 検索
+NeoBundle 'fuenor/qfixgrep'
