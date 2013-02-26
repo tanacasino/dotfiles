@@ -20,13 +20,14 @@ set splitright
 " カラー
 " FIXME background=dark が望みどおりの色になっていない。なぜ？
 set t_Co=256
+let g:solarized_termcolors=256
 if !has("gui_running")
-  "let g:solarized_termcolors=256
   "set background=light
   "set background=dark
   "colorscheme solarized
   "colorscheme desertEx
-  colorscheme tanacasino
+  "colorscheme tanacasino
+  colorscheme Tomorrow-Night-Bright
 endif
 
 
