@@ -60,7 +60,11 @@ function is_ubuntu() {
 }
 
 function linkit() {
-    ln -is "$CONF_HOME/$1" $2 || return 1
+    if [ `uname` = 'Darwin' ]; then
+        gln -is "$CONF_HOME/$1" $2 || return 1
+    else
+        ln -is "$CONF_HOME/$1" $2 || return 1
+    fi
     return 0
 }
 
