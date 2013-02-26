@@ -47,6 +47,9 @@ if [ `uname` = "Darwin" ]; then
     alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 else
     alias ls='ls --color=auto'
+    if [ -f $HOME/.dir_colors ]; then
+        eval $(dircolors -b $HOME/.dir_colors)
+    fi
 fi
 alias l='ls -CF'
 alias ll='ls -lF'
