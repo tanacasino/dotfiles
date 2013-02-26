@@ -60,9 +60,12 @@ alias egrep='egrep --color=auto'
 
 alias hist='history'
 
+# python
 alias ipython='PAGER="less -r" ipython'
 
-alias gshow='git show --stat -p'
+# git
+alias g='git'
+compdef g=git
 
 alias vissh='vim $HOME/.ssh/config'
 
