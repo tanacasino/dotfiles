@@ -32,6 +32,6 @@ DISABLE_AUTO_TITLE="true"
 if [ `uname` = "Darwin" ]; then
     plugins=(autojump git mercurial pip rbenv osx brew)
 else
-    plugins=(autojump git mercurial pip rbenv command-not-found)
+    plugins=(autojump git mercurial pip rbenv)
 fi
 source $ZSH/oh-my-zsh.sh
