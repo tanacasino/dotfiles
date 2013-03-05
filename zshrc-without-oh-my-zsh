@@ -85,6 +85,8 @@ setopt auto_pushd
 setopt pushd_ignore_dups
 # コマンドのスペルチェックをする
 setopt correct
+# 右プロンプトの表示が常に1つになるように
+setopt transient_rprompt
 
 
 ### git ###
