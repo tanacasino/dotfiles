@@ -1,4 +1,5 @@
-# my zsh settings
+# $HOME/.oh-my-zsh/custom/tanacasino.zsh
+
 ### keybind ###
 # EDITORがvim設定の場合でもemacsキーバインドを使う(ex. Ctrl + Aで行頭とか)
 bindkey -e
@@ -14,13 +15,9 @@ setopt append_history no_inc_append_history no_share_history
 # 右プロンプトの表示が常に1つになるように
 setopt transient_rprompt
 
-### nocorrect ###
-
-if [ -f ~/.zsh_nocorrect ]; then
-    while read -r COMMAND; do
-        alias $COMMAND="nocorrect $COMMAND"
-    done < ~/.zsh_nocorrect
-fi
+# コマンドのスペルチェックをしない
+unsetopt correct
+unsetopt correct_all
 
 
 ### PATH ###
@@ -47,6 +44,7 @@ if [ `uname` = "Darwin" ]; then
     alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
     alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 else
+    TERM=xterm-256color
     alias ls='ls --color=auto'
     if [ -f $HOME/.dir_colors ]; then
         eval $(dircolors -b $HOME/.dir_colors)
@@ -72,6 +70,11 @@ alias g='git'
 compdef g=git
 
 alias vissh='vim $HOME/.ssh/config'
+
+# tmux
+alias t='tmux'
+compdef t=tmux
+
 
 ### Environment Variables ###
 export EDITOR=vim

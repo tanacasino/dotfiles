@@ -1,6 +1,29 @@
-#!/bin/sh
+#!/bin/bash
+# -*- coding:utf-8 -*-
+
+function get_ip_by_interface() {
+    local interface=$1
+    local ipaddr=$(LC_ALL=C /sbin/ip -4 addr list dev "$interface" scope global 2>/dev/null)
+    ipaddr=${ipaddr#* inet }
+    ipaddr=${ipaddr%%/*}
+    echo $ipaddr
+}
+
 if [ `uname` = 'Darwin' ]; then
+    # For Mac OS X
     LANG=C ifconfig | grep "\tinet " | grep -v 127.0.0.1 | awk '{print $2}'
 else
-    echo "127.0.0.1"
+    # For ubuntu
+    if [ -n "$1" ]; then
+        echo "127.0.0.1"
+    else
+        # auto detect
+        for i in eth0 wlan0; do
+            ipaddr=$(get_ip_by_interface $i 2>/dev/null)
+            if [ ! -n $ipaddr ]; then
+                break
+            fi
+        done
+        echo $ipaddr
+    fi
 fi

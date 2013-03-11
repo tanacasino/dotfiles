@@ -10,6 +10,9 @@ dstat
 exuberant-ctags
 gawk
 git-core
+htop
+iftop
+iotop
 iputils-arping
 iputils-ping
 ipython
@@ -37,8 +40,10 @@ qemu-kvm
 quilt
 sqlite3
 sudo
+sysstat
 tcpdump
 tig
+tmux
 traceroute
 unzip
 vim

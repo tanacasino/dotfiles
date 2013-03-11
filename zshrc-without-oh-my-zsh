@@ -8,13 +8,16 @@ export LESSCHARSET=utf-8
 # python-pip cache
 export PIP_DOWNLOAD_CACHE="$HOME/.pip-cache"
 export EDITOR=vim
+
 ## PATH ##
 typeset -U path
 path=(
       $HOME/bin(N-/)
       $HOME/local/bin(N-/)
+      $HOME/homebrew/bin(N-/)
       $path
      )
+
 ## keybind ##
 bindkey -e
 
@@ -23,17 +26,13 @@ bindkey -e
 case "${OSTYPE}" in
 darwin*)
     # prerequires
-    # homebrew
-    # # brew install coreutils
-    # MacVim
-    #
-    # GNU (prereq: brew install coreutils)
+    # * homebrew
+    #   * # brew install coreutils
+    # * MacVim
     alias ls='gls --color=auto'
     if [ -f $HOME/.dir_colors ]; then
         eval $(gdircolors -b $HOME/.dir_colors)
     fi
-    # Byobu(brew install byobu)
-    export BYOBU_PREFIX=$(brew --prefix)
     # MacVim(kaoriya)
     export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
     alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
@@ -46,15 +45,6 @@ darwin*)
     fi
     ;;
 esac
-
-
-### nocorrect ###
-if [ -f ~/.zsh_nocorrect ]; then
-    while read -r COMMAND; do
-        alias $COMMAND="nocorrect $COMMAND"
-    done < ~/.zsh_nocorrect
-fi
-
 
 ### zsh options ###
 ## 補完 ##
@@ -83,8 +73,9 @@ setopt auto_cd
 setopt auto_pushd
 # ディレクトリスタックに同じディレクトリを追加しないようになる
 setopt pushd_ignore_dups
-# コマンドのスペルチェックをする
-setopt correct
+# コマンドのスペルチェックをしない
+unsetopt correct
+unsetopt correct_all
 # 右プロンプトの表示が常に1つになるように
 setopt transient_rprompt
 
@@ -188,3 +179,7 @@ alias gm='git merge'
 compdef _git gm=git-merge
 alias grh='git reset HEAD'
 alias grhh='git reset HEAD --hard'
+
+# tmux
+alias t='tmux'
+compdef t=tmux
