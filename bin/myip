@@ -20,7 +20,7 @@ else
         # auto detect
         for i in eth0 wlan0; do
             ipaddr=$(get_ip_by_interface $i 2>/dev/null)
-            if [ ! -n $ipaddr ]; then
+            if [ -n "$ipaddr" ]; then
                 break
             fi
         done
