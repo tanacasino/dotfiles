@@ -52,7 +52,7 @@ done
 #########################
 function is_ubuntu() {
     if [ -x $(which lsb_release 2>/dev/null) ]; then
-        if [ "Ubuntu" == $(lsb_release -i -s) ]; then
+        if [ "Ubuntu" -eq $(lsb_release -i -s) ]; then
             return 0
         fi
     fi
@@ -60,7 +60,7 @@ function is_ubuntu() {
 }
 
 function linkit() {
-    if [ `uname` = 'Darwin' ]; then
+    if [ `uname` -eq 'Darwin' ]; then
         gln -is "$CONF_HOME/$1" $2 || return 1
     else
         ln -is "$CONF_HOME/$1" $2 || return 1
@@ -78,8 +78,8 @@ function apt_install() {
 # Install packages
 #########################
 if [ is_ubuntu ]; then
-    [[ $apt  == 1 ]] && apt_install apt-packages
-    [[ $xapt == 1 ]] && apt_install apt-desktop-packages
+    [[ $apt  -eq 1 ]] && apt_install apt-packages
+    [[ $xapt -eq 1 ]] && apt_install apt-desktop-packages
 fi
 
 
@@ -87,14 +87,13 @@ fi
 # Conf files
 #########################
 ### zsh ###
-if [ $ohmyzsh == 1 ]; then
+if [ $ohmyzsh -eq 1 ]; then
     OH_MY_ZSH=$HOME/.oh-my-zsh
     if [ ! -d $OH_MY_ZSH ]; then
         git clone https://github.com/robbyrussell/oh-my-zsh.git "$OH_MY_ZSH"
         linkit tanacasino.zsh       "$OH_MY_ZSH/custom/"
         linkit tanacasino.zsh-theme "$OH_MY_ZSH/themes/"
         linkit .zshrc               "$HOME/"
-        linkit .zsh_nocorrect       "$HOME/"
     fi
 else
     linkit zshrc-without-oh-my-zsh "$HOME/.zshrc"
