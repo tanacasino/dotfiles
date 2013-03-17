@@ -14,6 +14,7 @@ filetype plugin indent on
 " 縦分割をする際、新しいウィンドウを右側に作る
 set splitright
 
+
 "-----------------------------------
 " View
 "-----------------------------------
@@ -57,6 +58,7 @@ set showmatch
 " 全角記号の表示用 (gnome-terminalでは残念ながら潰れる)
 set ambiwidth=double
 
+
 "-----------------------------------
 " Search
 "-----------------------------------
@@ -88,4 +90,26 @@ if has("autocmd")
   function! FormatPyImport(str)
     return substitute(substitute(substitute(a:str, '^from \|^import ', '', ''), 'import \a\+', '', ''), '\.', '\/', 'g')
   endfunction
+endif
+
+
+"-----------------------------------
+" Backup and Swap
+"-----------------------------------
+" バックアップ
+set backup
+" バックアップファイルの作成場所
+if has('win32') || has('win64')
+  set backupdir=~/vimfiles/backup/
+else
+  set backupdir=~/.vim/backup/
+endif
+
+" スワップファイル
+set swapfile
+" スワップファイルの作成場所
+if has('win32') || has('win64')
+  set directory=~/vimfiles/swap/
+else
+  set directory=~/.vim/swap/
 endif

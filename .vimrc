@@ -7,24 +7,26 @@ set nocompatible
 filetype off
 filetype plugin indent off
 
-" Setup Bundle
+" Configure Bundle
 " Use NeoBundle (https://github.com/Shougo/neobundle.vim)
 source ~/.vimrc.bundle
 
-" Setup General
+" Configure General
 source ~/.vimrc.general
 
-" Setup Backup
-source ~/.vimrc.backup
-
-" Setup Indent
-source ~/.vimrc.indent
-
-" Setup Keymap
+" Configure Keymap
 source ~/.vimrc.keymap
 
-" Setup Completion
+" Configure Completion
 source ~/.vimrc.completion
 
-" Setup Plugin
+" Configure Indent
+source ~/.vimrc.indent
+
+" Configure Plugin
 source ~/.vimrc.plugin
+
+" Configure environment-specific
+if filereadable(expand('~/.vimrc.local'))
+  source ~/.vimrc.local
+endif
