@@ -30,8 +30,8 @@ DISABLE_AUTO_TITLE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 if [ `uname` = "Darwin" ]; then
-    plugins=(autojump git mercurial pip rbenv osx brew)
+    plugins=(autojump git mercurial pip rbenv osx brew vagrant)
 else
-    plugins=(autojump git mercurial pip rbenv)
+    plugins=(autojump git mercurial pip rbenv vagrant)
 fi
 source $ZSH/oh-my-zsh.sh
