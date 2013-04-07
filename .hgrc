@@ -14,3 +14,9 @@ update = --encoding=utf-8
 
 [web]
 cacerts = /etc/ssl/certs/ca-certificates.crt
+
+[extensions]
+color =
+
+[color]
+mode = terminfo
