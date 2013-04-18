@@ -52,7 +52,7 @@ done
 #########################
 function is_ubuntu() {
     if [ -x $(which lsb_release 2>/dev/null) ]; then
-        if [ "Ubuntu" -eq $(lsb_release -i -s) ]; then
+        if [ "Ubuntu" = $(lsb_release -i -s) ]; then
             return 0
         fi
     fi
@@ -60,7 +60,7 @@ function is_ubuntu() {
 }
 
 function linkit() {
-    if [ `uname` -eq 'Darwin' ]; then
+    if [ $(uname) = 'Darwin' ]; then
         gln -is "$CONF_HOME/$1" $2 || return 1
     else
         ln -is "$CONF_HOME/$1" $2 || return 1
