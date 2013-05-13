@@ -26,6 +26,9 @@ source ~/.vimrc.indent
 " Configure Plugin
 source ~/.vimrc.plugin
 
+" Configure Extra Command
+source ~/.vimrc.cmd
+
 " Configure environment-specific
 if filereadable(expand('~/.vimrc.local'))
   source ~/.vimrc.local
