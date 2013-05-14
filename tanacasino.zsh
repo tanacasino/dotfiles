@@ -78,7 +78,25 @@ compdef t=tmux
 ### Environment Variables ###
 export EDITOR=vim
 
-
-### Other ###
 # python-pip cache
 export PIP_DOWNLOAD_CACHE="$HOME/.pip-cache"
+
+
+### Functions ###
+
+function alc() {
+    if which w3m > /dev/null 2>&1; then
+        if [ -r $HOME/.w3m/config ]; then
+            if grep -q ^http_proxy $HOME/.w3m/config; then
+                eval `grep ^http_proxy ~/.w3m/config`
+            fi
+        fi
+        if [ -n "$http_proxy" ]; then
+            http_proxy=$http_proxy w3m "http://eow.alc.co.jp/$*/UTF-8/?ref=sa" | sed "1,37d" | less
+        else
+            w3m "http://eow.alc.co.jp/$*/UTF-8/?ref=sa" | sed "1,37d" | less
+        fi
+    else
+        echo "w3m not found"
+    fi
+}
