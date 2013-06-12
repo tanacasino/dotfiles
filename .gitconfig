@@ -17,7 +17,7 @@
 	excludesfile = ~/.gitignore
 	editor = vim
 	autoCRLF = false
-	pager = less -R
+	pager = less -SRFX
 
 [gui]
 	encoding = utf-8
