@@ -17,6 +17,10 @@ cacerts = /etc/ssl/certs/ca-certificates.crt
 
 [extensions]
 color =
+pager =
 
 [color]
 mode = terminfo
+
+[pager]
+pager = less -SRFX
