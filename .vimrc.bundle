@@ -39,7 +39,7 @@ if has('unix')
 endif
 
 
-NeoBundle 'Lokaltog/vim-powerline'
+NeoBundle 'bling/vim-airline'
 NeoBundle 'altercation/vim-colors-solarized'
 " NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'houtsnip/vim-emacscommandline'
