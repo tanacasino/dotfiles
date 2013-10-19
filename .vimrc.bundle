@@ -39,8 +39,9 @@ if has('unix')
 endif
 
 
-NeoBundle 'bling/vim-airline'
+NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'altercation/vim-colors-solarized'
+" python auto complete
 " NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'houtsnip/vim-emacscommandline'
 NeoBundle 'majutsushi/tagbar'
@@ -52,6 +53,7 @@ NeoBundle 'thinca/vim-ref'
 NeoBundle 'thinca/vim-visualstar'
 NeoBundle 'timcharper/textile.vim'
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'tpope/vim-markdown'
 
 
