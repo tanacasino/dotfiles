@@ -132,3 +132,11 @@ nnoremap <silent> Ut :<C-u>Unite tab<CR>
 command Vf VimFiler -buffer-name=explorer -split -simple -winwidth=35 -toggle -no-quit
 nnoremap <silent> Uv :<C-u>Vf<CR>
 
+
+"-----------------------------------
+" tagbar
+"-----------------------------------
+" case MacOS X and homebrew env
+if has('mac')
+  let g:tagbar_ctags_bin = expand('$HOME') . '/bin/ctags'
+endif
