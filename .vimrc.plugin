@@ -119,7 +119,7 @@ map # <Plug>(visualstar-#)N
 let g:unite_source_grep_default_opts = '-iHn --color=never'
 " grep時の表示件数
 let g:unite_source_grep_max_candidates = 300
-nnoremap <silent> Uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <silent> Uf :<C-u>UniteWithBufferDir -buffer-name=files file file/new<CR>
 nnoremap <silent> Ub :<C-u>Unite buffer<CR>
 nnoremap <silent> Um :<C-u>Unite file_mru<CR>
 nnoremap <silent> Ug :<C-u>Unite grep<CR>
