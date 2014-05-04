@@ -28,6 +28,7 @@ let g:neobundle_default_git_protocol = 'http'
 "-----------------------------------
 NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/neocomplcache'
 " NeoBundle 'Shougo/neocomplete'
 NeoBundle 'Shougo/neosnippet'
