@@ -94,7 +94,7 @@ endif
 
 
 "-----------------------------------
-" Backup and Swap
+" Backup, Swap and Undo
 "-----------------------------------
 " バックアップ
 set backup
@@ -113,3 +113,5 @@ if has('win32') || has('win64')
 else
   set directory=~/.vim/swap/
 endif
+" Undoファイル
+set noundofile
