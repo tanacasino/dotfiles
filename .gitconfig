@@ -6,6 +6,8 @@
 	ui = true
 
 [alias]
+	a = add
+	f = fetch
 	co = checkout
 	ci = commit
 	st = status -sb
