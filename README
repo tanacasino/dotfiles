@@ -1,10 +1,12 @@
 # README
 
-Setup My Environment(Ubuntu)
+Setup My Environment
 
     ./setup.sh
-    # with apt-get install apt-packages
+
+    # with apt-get install apt-packages (Ubuntu Only)
     ./setup.sh -a
-    # with apt-get install apt-desktop-packages
+
+    # with apt-get install apt-desktop-packages (Ubuntu Only)
     ./setup.sh -a -x
 
