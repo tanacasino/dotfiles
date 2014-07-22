@@ -100,3 +100,33 @@ function alc() {
         echo "w3m not found"
     fi
 }
+
+## peco ##
+function agvim () {
+    if [ `uname` = "Darwin" ]; then
+        env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim $(ag $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
+    else
+        vim $(ag $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
+    fi
+}
+
+function peco-select-history() {
+    local tac
+    if which tac > /dev/null; then
+        tac="tac"
+    else
+        tac="tail -r"
+    fi
+    BUFFER=$(\history -n 1 | \
+        eval $tac | \
+        peco --query "$LBUFFER")
+    CURSOR=$#BUFFER
+    zle clear-screen
+}
+zle -N peco-select-history
+bindkey '^r' peco-select-history
+
+function tmuxps() {
+    tmuxp load $(ls ~/.tmuxp | peco --query "$LBUFFER")
+}
+
