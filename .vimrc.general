@@ -26,9 +26,10 @@ if !has("gui_running")
   "set background=light
   "set background=dark
   "colorscheme solarized
-  "colorscheme desertEx
+  "colorscheme desert256
   "colorscheme tanacasino
-  colorscheme Tomorrow-Night-Bright
+  "colorscheme Tomorrow-Night-Bright
+  colorscheme jellybeans
 endif
 
 
