@@ -11,7 +11,7 @@ source $VIMRUNTIME/menu.vim
 set guioptions-=T
 
 " カラースキーマ
-set background=light
+"set background=light
 "set background=dark
 "colorscheme solarized
 "colorscheme desertEx
