@@ -72,3 +72,4 @@ NeoBundle 'fuenor/qfixgrep'
 NeoBundle 'matchit.zip'
 NeoBundle 'thinca/vim-qfreplace'
 NeoBundle 'vim-ruby/vim-ruby'
+NeoBundleLazy 'Blackrush/vim-gocode', {"autoload": {"filetypes": ['go']}}

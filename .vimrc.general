@@ -92,6 +92,8 @@ if has("autocmd")
     return substitute(substitute(substitute(a:str, '^from \|^import ', '', ''), 'import \a\+', '', ''), '\.', '\/', 'g')
   endfunction
 endif
+" golang
+auto BufWritePre *.go Fmt
 
 
 "-----------------------------------
