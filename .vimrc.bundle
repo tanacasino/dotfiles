@@ -29,9 +29,6 @@ let g:neobundle_default_git_protocol = 'https'
 NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'Shougo/neocomplete'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/vimfiler'
 if has('unix')
   NeoBundle 'Shougo/vimproc.vim', {
@@ -43,12 +40,13 @@ if has('unix')
         \ }
   NeoBundle 'Shougo/vimshell'
 endif
+NeoBundle 'Shougo/neocomplete'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
 
 
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'altercation/vim-colors-solarized'
-" python auto complete
-" NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'houtsnip/vim-emacscommandline'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'quickrun.vim'
