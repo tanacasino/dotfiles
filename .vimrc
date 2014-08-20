@@ -29,6 +29,9 @@ source ~/.vimrc.plugin
 " Configure Extra Command
 source ~/.vimrc.cmd
 
+" Configure Programming Language Specific
+source ~/.vimrc.lang
+
 " Configure environment-specific
 if filereadable(expand('~/.vimrc.local'))
   source ~/.vimrc.local
