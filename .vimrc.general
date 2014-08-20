@@ -19,7 +19,6 @@ set splitright
 " View
 "-----------------------------------
 " カラー
-" FIXME background=dark が望みどおりの色になっていない。なぜ？
 set t_Co=256
 let g:solarized_termcolors=256
 if !has("gui_running")
@@ -84,13 +83,6 @@ if has("gui_running")
   set guioptions+=a
 else
   set clipboard+=autoselect
-endif
-" Pythonのimport文のソースファイルをgfで開く
-if has("autocmd")
-  autocmd FileType python setlocal includeexpr=FormatPyImport(v:fname) | setlocal path+=;/
-  function! FormatPyImport(str)
-    return substitute(substitute(substitute(a:str, '^from \|^import ', '', ''), 'import \a\+', '', ''), '\.', '\/', 'g')
-  endfunction
 endif
 
 

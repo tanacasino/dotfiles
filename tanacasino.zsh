@@ -130,3 +130,6 @@ function tmuxps() {
     tmuxp load $(ls ~/.tmuxp | peco --query "$LBUFFER")
 }
 
+
+### localrc ###
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
