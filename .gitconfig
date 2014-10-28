@@ -21,6 +21,9 @@
 	autoCRLF = false
 	pager = less -SRFX
 
+[credential]
+	helper = cache --timeout=3600
+
 [gui]
 	encoding = utf-8
 
