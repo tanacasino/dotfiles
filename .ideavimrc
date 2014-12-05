@@ -1,24 +1,25 @@
 " .ideavimrc
 
-" ŒŸõŠÖ˜A
+" OSã®ã‚¯ãƒªãƒƒãƒ—ãƒœãƒ¼ãƒ‰ã«yankã™ã‚‹
+set clipboard
+
+
+" æ¤œç´¢é–¢é€£
 set ignorecase
 set hlsearch
 set smartcase
 set nowrapscan
 
 
-"x ƒL[íœ‚ÅƒfƒtƒHƒ‹ƒgƒŒƒWƒXƒ^‚É“ü‚ê‚È‚¢
+"x ã‚­ãƒ¼å‰Šé™¤ã§ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãƒ¬ã‚¸ã‚¹ã‚¿ã«å…¥ã‚Œãªã„
 nnoremap x "_x
 vnoremap x "_x
 
-"vv ‚Ås––‚Ü‚Å‘I‘ğ
+"vv ã§è¡Œæœ«ã¾ã§é¸æŠ
 vnoremap v ^$h
 
 
-"ƒm[ƒ}ƒ‹ƒ‚[ƒh’†‚ÉEnter‚Å‰üs
-noremap <CR> i<CR><Esc>
-
-"ƒCƒ“ƒT[ƒgƒ‚[ƒh‚Å bash •—ƒL[ƒ}ƒbƒv
+"ã‚¤ãƒ³ã‚µãƒ¼ãƒˆãƒ¢ãƒ¼ãƒ‰ã§ bash é¢¨ã‚­ãƒ¼ãƒãƒƒãƒ—
 inoremap <C-a> <C-o>^
 inoremap <C-e> <C-o>$<Right>
 inoremap <C-b> <Left>
@@ -31,3 +32,4 @@ inoremap <C-w> <C-o>db
 
 " turn off search highlight.
 nmap <ESC><ESC> :nohlsearch<CR><ESC>
+
