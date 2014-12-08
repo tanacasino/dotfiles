@@ -14,7 +14,7 @@ if has('vim_starting')
     let s:bundlepath='~/.vim/'
   endif
   execute 'set runtimepath+=' . expand(s:bundlepath . 'bundle/neobundle.vim')
-  call neobundle#rc(expand(s:bundlepath . '/bundle/'))
+  call neobundle#begin(expand(s:bundlepath . '/bundle'))
 endif
 
 " gitレポジトリをcloneする際のプロトコル
@@ -71,3 +71,6 @@ NeoBundle 'matchit.zip'
 NeoBundle 'thinca/vim-qfreplace'
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundleLazy 'Blackrush/vim-gocode', {"autoload": {"filetypes": ['go']}}
+
+
+call neobundle#end()
