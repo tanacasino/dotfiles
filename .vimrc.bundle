@@ -71,6 +71,9 @@ NeoBundle 'matchit.zip'
 NeoBundle 'thinca/vim-qfreplace'
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundleLazy 'Blackrush/vim-gocode', {"autoload": {"filetypes": ['go']}}
+NeoBundleLazy 'https://github.com/leafgarland/typescript-vim.git', {"autoload": {"filetypes": ['ts']}}
+NeoBundleLazy 'https://github.com/clausreinke/typescript-tools.git', {"autoload": {"filetypes": ['ts']}}
+
 
 
 call neobundle#end()
