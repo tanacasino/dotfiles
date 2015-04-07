@@ -126,16 +126,14 @@ function peco-select-history() {
 zle -N peco-select-history
 bindkey '^r' peco-select-history
 
-function peco-select-directory() {
-    BUFFER=$(z | \
-             head -100 | \
-             awk '{print $2}' | \
-             peco --query "$LBUFFER")
+
+function peco-cd-devel-directory() {
+    BUFFER=$(ghq list -p | peco --query "$LBUFFER")
     CURSOR=$#BUFFER
     zle clear-screen
 }
-zle -N peco-select-directory
-bindkey '^x^r' peco-select-directory
+zle -N peco-cd-devel-directory
+bindkey '^x^r' peco-cd-devel-directory
 
 function tmuxps() {
     tmuxp load $(ls ~/.tmuxp | peco --query "$LBUFFER")
