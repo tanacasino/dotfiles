@@ -61,6 +61,7 @@ NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'tpope/vim-markdown'
 
 
+NeoBundle 'vim-scala'
 NeoBundle 'Align'
 NeoBundle 'DirDiff.vim'
 NeoBundle 'L9'
@@ -70,9 +71,9 @@ NeoBundle 'fuenor/qfixgrep'
 NeoBundle 'matchit.zip'
 NeoBundle 'thinca/vim-qfreplace'
 NeoBundle 'vim-ruby/vim-ruby'
-NeoBundleLazy 'Blackrush/vim-gocode', {"autoload": {"filetypes": ['go']}}
-NeoBundleLazy 'https://github.com/leafgarland/typescript-vim.git', {"autoload": {"filetypes": ['ts']}}
-NeoBundleLazy 'https://github.com/clausreinke/typescript-tools.git', {"autoload": {"filetypes": ['ts']}}
+NeoBundle 'Blackrush/vim-gocode'
+NeoBundle 'https://github.com/leafgarland/typescript-vim.git'
+NeoBundle 'https://github.com/clausreinke/typescript-tools.git'
 
 
 

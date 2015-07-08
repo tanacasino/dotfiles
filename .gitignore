@@ -3,4 +3,5 @@
 .vim/bundle/*
 .vim/swap/*.swp
 .vim/swap/*.swo
+.vim/swap/*.swn
 
