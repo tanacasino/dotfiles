@@ -59,6 +59,8 @@ NeoBundle 'timcharper/textile.vim'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'tpope/vim-markdown'
+NeoBundle 'haya14busa/incsearch.vim'
+NeoBundle 'haya14busa/incsearch-fuzzy.vim'
 
 
 NeoBundle 'vim-scala'
@@ -74,6 +76,8 @@ NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'Blackrush/vim-gocode'
 NeoBundle 'https://github.com/leafgarland/typescript-vim.git'
 NeoBundle 'https://github.com/clausreinke/typescript-tools.git'
+NeoBundle 'zenorocha/dracula-theme', {'rtp': 'vim/'}
+NeoBundle 'gosukiwi/vim-atom-dark'
 
 
 

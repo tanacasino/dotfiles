@@ -28,7 +28,9 @@ if !has("gui_running")
   "colorscheme desert256
   "colorscheme tanacasino
   "colorscheme Tomorrow-Night-Bright
-  colorscheme jellybeans
+  "colorscheme jellybeans
+  "colorscheme dracula
+  colorscheme atom-dark-256
 endif
 
 
