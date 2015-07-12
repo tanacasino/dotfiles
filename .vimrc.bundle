@@ -74,6 +74,8 @@ NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'Blackrush/vim-gocode'
 NeoBundle 'https://github.com/leafgarland/typescript-vim.git'
 NeoBundle 'https://github.com/clausreinke/typescript-tools.git'
+NeoBundle 'rhysd/try-colorscheme.vim'
+NeoBundle 'NLKNguyen/papercolor-theme'
 
 
 
