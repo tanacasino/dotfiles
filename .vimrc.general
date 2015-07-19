@@ -23,13 +23,13 @@ set t_Co=256
 let g:solarized_termcolors=256
 if !has("gui_running")
   "set background=light
-  "set background=dark
+  set background=dark
   "colorscheme solarized
   "colorscheme desert256
   "colorscheme tanacasino
   "colorscheme Tomorrow-Night-Bright
   "colorscheme jellybeans
-  colorscheme PaperColor-Dark
+  colorscheme PaperColor
 endif
 
 
