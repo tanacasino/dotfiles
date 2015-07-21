@@ -22,16 +22,14 @@ set splitright
 set t_Co=256
 let g:solarized_termcolors=256
 if !has("gui_running")
-  "set background=light
   set background=dark
+  "set background=light
+
   "colorscheme solarized
   "colorscheme desert256
   "colorscheme tanacasino
   "colorscheme Tomorrow-Night-Bright
   "colorscheme jellybeans
-  "colorscheme dracula
-  "colorscheme atom-dark-256
-  "colorscheme PaperColor-Dark
   colorscheme PaperColor
 endif
 

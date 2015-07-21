@@ -40,30 +40,27 @@ if has('unix')
         \ }
   NeoBundle 'Shougo/vimshell'
 endif
+
+" Auto Complete/Snippets
 NeoBundle 'Shougo/neocomplete'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 
 
 NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'houtsnip/vim-emacscommandline'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'quickrun.vim'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'sudo.vim'
-NeoBundle 'surround.vim'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'thinca/vim-visualstar'
-NeoBundle 'timcharper/textile.vim'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'tpope/vim-markdown'
-NeoBundle 'haya14busa/incsearch.vim'
 NeoBundle 'haya14busa/incsearch-fuzzy.vim'
+NeoBundle 'haya14busa/incsearch.vim'
+"NeoBundle 'Townk/vim-autoclose'
 
-
-NeoBundle 'vim-scala'
 NeoBundle 'Align'
 NeoBundle 'DirDiff.vim'
 NeoBundle 'L9'
@@ -72,16 +69,39 @@ NeoBundle 'The-NERD-tree'
 NeoBundle 'fuenor/qfixgrep'
 NeoBundle 'matchit.zip'
 NeoBundle 'thinca/vim-qfreplace'
-NeoBundle 'vim-ruby/vim-ruby'
-NeoBundle 'Blackrush/vim-gocode'
-NeoBundle 'https://github.com/leafgarland/typescript-vim.git'
-NeoBundle 'https://github.com/clausreinke/typescript-tools.git'
-NeoBundle 'zenorocha/dracula-theme', {'rtp': 'vim/'}
-NeoBundle 'gosukiwi/vim-atom-dark'
-NeoBundle 'rhysd/try-colorscheme.vim'
-"NeoBundle 'NLKNguyen/papercolor-theme'
-NeoBundle 'tanacasino/papercolor-theme', {'rev': 'custom'}
+"NeoBundle 'bronson/vim-trailing-whitespace'
+NeoBundle 'easymotion/vim-easymotion'
+NeoBundle 'terryma/vim-multiple-cursors'
 
+
+" Language
+NeoBundle 'derekwyatt/vim-scala'
+NeoBundle 'vim-ruby/vim-ruby'
+NeoBundle 'fatih/vim-go'
+NeoBundle 'leafgarland/typescript-vim'
+NeoBundle 'clausreinke/typescript-tools'
+NeoBundle 'mustache/vim-mustache-handlebars'
+NeoBundle 'tpope/vim-markdown'
+NeoBundle 'timcharper/textile.vim'
+NeoBundle 'hail2u/vim-css3-syntax'
+NeoBundle 'jelera/vim-javascript-syntax'
+NeoBundle 'elzr/vim-json'
+NeoBundle 'skammer/vim-css-color'
+NeoBundle 'ap/vim-css-color'
+NeoBundle 'mattn/emmet-vim'
+NeoBundle 'wting/rust.vim'
+
+
+" Text Objects
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'kana/vim-textobj-indent'
+
+" Colorschemes
+NeoBundle 'rhysd/try-colorscheme.vim'
+NeoBundle 'tanacasino/papercolor-theme', 'custom'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'flazz/vim-colorschemes'
 
 
 call neobundle#end()

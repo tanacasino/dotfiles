@@ -37,12 +37,6 @@ if [ `uname` = "Darwin" ]; then
     if [ -f $HOME/.dir_colors ]; then
         eval $(gdircolors -b $HOME/.dir_colors)
     fi
-    # Byobu(brew install byobu)
-    export BYOBU_PREFIX=$(brew --prefix)
-    # MacVim(kaoriya)
-    export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
-    alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
-    alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 else
     alias ls='ls --color=auto'
     if [ -f $HOME/.dir_colors ]; then
