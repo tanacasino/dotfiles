@@ -66,13 +66,13 @@ alias ipython='PAGER="less -r" ipython'
 
 # git
 alias g='git'
-compdef g=git
+#compdef g=git
 
 alias vissh='vim $HOME/.ssh/config'
 
 # tmux
 alias t='tmux'
-compdef t=tmux
+#compdef t=tmux
 
 
 ### Environment Variables ###

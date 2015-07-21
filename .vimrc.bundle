@@ -78,6 +78,9 @@ NeoBundle 'https://github.com/leafgarland/typescript-vim.git'
 NeoBundle 'https://github.com/clausreinke/typescript-tools.git'
 NeoBundle 'zenorocha/dracula-theme', {'rtp': 'vim/'}
 NeoBundle 'gosukiwi/vim-atom-dark'
+NeoBundle 'rhysd/try-colorscheme.vim'
+"NeoBundle 'NLKNguyen/papercolor-theme'
+NeoBundle 'tanacasino/papercolor-theme', {'rev': 'custom'}
 
 
 
