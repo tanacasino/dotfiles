@@ -12,10 +12,11 @@ set guioptions-=T
 
 " カラースキーマ
 "set background=light
-"set background=dark
+set background=dark
 "colorscheme solarized
 "colorscheme desertEx
-colorscheme tanacasino
+"colorscheme tanacasino
+colorscheme PaperColor
 
 " フォント
 if has('win32')
