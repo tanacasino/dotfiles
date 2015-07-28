@@ -161,7 +161,7 @@ nnoremap <silent> Ut :<C-u>Unite tab<CR>
 "-----------------------------------
 " VimFiler
 "-----------------------------------
-command Vf VimFiler -buffer-name=explorer -split -simple -winwidth=35 -toggle -no-quit
+command! Vf VimFiler -buffer-name=explorer -split -simple -winwidth=35 -toggle -no-quit
 nnoremap <silent> Uv :<C-u>Vf<CR>
 
 
