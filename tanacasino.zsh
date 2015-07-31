@@ -97,11 +97,7 @@ function alc() {
 
 ## peco ##
 function agvim () {
-    if [ `uname` = "Darwin" ]; then
-        env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim $(ag $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
-    else
-        vim $(ag $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
-    fi
+    vim $(ag $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
 }
 
 function peco-select-history() {
@@ -128,6 +124,16 @@ function peco-cd-devel-directory() {
 }
 zle -N peco-cd-devel-directory
 bindkey '^x^r' peco-cd-devel-directory
+
+
+function peco-git-branch-checkout() {
+    BUFFER=$(git branch | peco --query "$LBUFFER" | sed -e "s/\* //g" | awk '{print "git checkout " $1}')
+    CURSOR=$#BUFFER
+    zle clear-screen
+}
+zle -N peco-git-branch-checkout
+bindkey '^g^b' peco-git-branch-checkout
+
 
 function tmuxps() {
     tmuxp load $(ls ~/.tmuxp | peco --query "$LBUFFER")
