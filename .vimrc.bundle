@@ -59,6 +59,8 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'haya14busa/incsearch-fuzzy.vim'
 NeoBundle 'haya14busa/incsearch.vim'
+NeoBundle "osyo-manga/vim-precious"
+NeoBundle "Shougo/context_filetype.vim"
 "NeoBundle 'Townk/vim-autoclose'
 
 NeoBundle 'Align'
@@ -72,6 +74,7 @@ NeoBundle 'thinca/vim-qfreplace'
 "NeoBundle 'bronson/vim-trailing-whitespace'
 NeoBundle 'easymotion/vim-easymotion'
 NeoBundle 'terryma/vim-multiple-cursors'
+
 
 
 " Language

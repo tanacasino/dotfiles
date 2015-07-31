@@ -56,8 +56,9 @@ let g:EclimCompletionMethod = "omnifunc"
 if !exists('g:neocomplete#force_omni_input_patterns')
   let g:neocomplete#force_omni_input_patterns = {}
 endif
-let g:neocomplete#force_omni_input_patterns.java = '\k\.\k*'
-let g:neocomplete#force_omni_input_patterns.scala = '\k\.\k*'
+"let g:neocomplete#force_omni_input_patterns.java = '\k\.\k*'
+"let g:neocomplete#force_omni_input_patterns.scala = '\k\.\k*'
+
 
 "------------------------------------
 " neosnippet
@@ -105,7 +106,7 @@ let NERDShutUp = 1
 "let g:syntastic_check_on_open = 1
 " ファイルオープン時はチェックしない(ファイル保存時にチェックする)
 let g:syntastic_check_on_open = 0
-
+let g:syntastic_disabled_filetypes=['java', 'scala']
 
 "-----------------------------------
 " vim-indent-guides
@@ -161,7 +162,7 @@ nnoremap <silent> Ut :<C-u>Unite tab<CR>
 "-----------------------------------
 " VimFiler
 "-----------------------------------
-command Vf VimFiler -buffer-name=explorer -split -simple -winwidth=35 -toggle -no-quit
+command! Vf VimFiler -buffer-name=explorer -split -simple -winwidth=35 -toggle -no-quit
 nnoremap <silent> Uv :<C-u>Vf<CR>
 
 
@@ -178,6 +179,7 @@ endif
 " eclim
 "-----------------------------------
 autocmd FileType scala nnoremap <C-]> :ScalaSearch<CR>
+let g:EclimScalaValidate = 0
 
 
 "-----------------------------------
@@ -188,11 +190,32 @@ map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
 map z/ <Plug>(incsearch-fuzzy-/)
 
-let g:incsearch#auto_nohlsearch = 1
-map n  <Plug>(incsearch-nohl-n)
-map N  <Plug>(incsearch-nohl-N)
-map *  <Plug>(incsearch-nohl-*)
-map #  <Plug>(incsearch-nohl-#)
-map g* <Plug>(incsearch-nohl-g*)
-map g# <Plug>(incsearch-nohl-g#)
+"let g:incsearch#auto_nohlsearch = 1
+"map n  <Plug>(incsearch-nohl-n)
+"map N  <Plug>(incsearch-nohl-N)
+"map *  <Plug>(incsearch-nohl-*)
+"map #  <Plug>(incsearch-nohl-#)
+"map g* <Plug>(incsearch-nohl-g*)
+"map g# <Plug>(incsearch-nohl-g#)
+
+
+"-----------------------------------
+" vim-easymotion
+"-----------------------------------
+let g:EasyMotion_do_mapping = 0
+nmap s <Plug>(easymotion-s2)
+xmap s <Plug>(easymotion-s2)
+omap z <Plug>(easymotion-s2)
+nmap g/ <Plug>(easymotion-sn)
+xmap g/ <Plug>(easymotion-sn)
+omap g/ <Plug>(easymotion-tn)
+let g:EasyMotion_smartcase = 1
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+let g:EasyMotion_startofline = 0
+let g:EasyMotion_keys = 'QZASDFGHJKL;'
+let g:EasyMotion_use_upper = 1
+let g:EasyMotion_enter_jump_first = 1
+let g:EasyMotion_space_jump_first = 1
+hi EasyMotionTarget guifg=#80a0ff ctermfg=81
 
