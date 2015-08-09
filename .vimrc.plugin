@@ -152,6 +152,7 @@ if executable('ag')
 endif
 
 nnoremap <silent> Uf :<C-u>UniteWithBufferDir -buffer-name=files file file/new<CR>
+nnoremap <silent> UF :<C-u>Unite file_rec/git<CR>
 nnoremap <silent> Ub :<C-u>Unite buffer<CR>
 nnoremap <silent> Um :<C-u>Unite file_mru<CR>
 nnoremap <silent> Ug :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
