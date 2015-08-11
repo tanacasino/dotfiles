@@ -6,3 +6,6 @@ tags
 
 # virtualenv
 pyenv
+
+.cache-*
+
