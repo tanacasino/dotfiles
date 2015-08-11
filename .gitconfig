@@ -30,3 +30,6 @@
 [ghq]
 	root = ~/devel/src
 
+[include]
+	path = ~/.gitconfig.local
+
