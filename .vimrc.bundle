@@ -63,6 +63,8 @@ NeoBundle "osyo-manga/vim-precious"
 NeoBundle "Shougo/context_filetype.vim"
 "NeoBundle 'Townk/vim-autoclose'
 
+
+NeoBundle 'tybenz/vimdeck'
 NeoBundle 'Align'
 NeoBundle 'DirDiff.vim'
 NeoBundle 'L9'
