@@ -45,6 +45,7 @@ endif
 NeoBundle 'Shougo/neocomplete'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'honza/vim-snippets'
 
 
 NeoBundle 'itchyny/lightline.vim'
