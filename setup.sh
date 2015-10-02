@@ -110,6 +110,15 @@ if [ ! -d $NEO_BUNDLE ]; then
     git clone https://github.com/Shougo/neobundle.vim $NEO_BUNDLE
 fi
 
+
+### tmux plugin manager ###
+TMUX_PLUGINS_DIR="$HOME/.tmux/plugins"
+mkdir -p $TMUX_PLUGINS_DIR
+if [ ! -d "$TMUX_PLUGINS_DIR/tpm"]; then
+    git clone https://github.com/tmux-plugins/tpm "$TMUX_PLUGINS_DIR"
+fi
+
+
 ### Others(git, hg, GNU screen) ###
 DOTFILES=".hgrc .gitconfig .dir_colors"
 # NOTE when use byobu, no need screenrc and .tmux.conf
