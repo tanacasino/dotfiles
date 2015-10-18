@@ -114,7 +114,7 @@ fi
 ### tmux plugin manager ###
 TMUX_PLUGINS_DIR="$HOME/.tmux/plugins"
 mkdir -p $TMUX_PLUGINS_DIR
-if [ ! -d "$TMUX_PLUGINS_DIR/tpm"]; then
+if [ ! -d "$TMUX_PLUGINS_DIR/tpm" ]; then
     git clone https://github.com/tmux-plugins/tpm "$TMUX_PLUGINS_DIR"
 fi
 
