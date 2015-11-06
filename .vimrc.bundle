@@ -82,6 +82,7 @@ NeoBundle 'terryma/vim-multiple-cursors'
 " Language
 NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'derekwyatt/vim-sbt'
+NeoBundle 'ensime/ensime-vim'
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'fatih/vim-go'
 NeoBundle 'leafgarland/typescript-vim'

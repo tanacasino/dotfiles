@@ -1,8 +1,7 @@
 "-----------------------------------
 " Omni function
 "-----------------------------------
-" Omni補完時にドキュメントプレビューが表示されないようにする.
-set completeopt=menuone
+set completeopt=preview,menuone
 
 " ファイルタイプ別の設定
 if has("autocmd")
@@ -16,3 +15,4 @@ if has("autocmd")
   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
   autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 endif
+

@@ -51,13 +51,18 @@ inoremap <expr><C-y>  neocomplete#close_popup()
 inoremap <expr><C-e>  neocomplete#cancel_popup()
 
 
-let g:EclimCompletionMethod = "omnifunc"
-
 if !exists('g:neocomplete#force_omni_input_patterns')
   let g:neocomplete#force_omni_input_patterns = {}
 endif
 "let g:neocomplete#force_omni_input_patterns.java = '\k\.\k*'
 "let g:neocomplete#force_omni_input_patterns.scala = '\k\.\k*'
+
+
+"------------------------------------
+" ensime-vim
+"------------------------------------
+" Use ensime as complete func
+autocmd FileType scala setlocal omnifunc=ensime#fun_en_complete_func
 
 
 "------------------------------------
@@ -89,7 +94,7 @@ let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 
 
 "------------------------------------
-" SmartInput/SmartChr
+" SmartInput/SmartChr TODO: Rewrite this ...
 "------------------------------------
 let s:bundle = neobundle#get('vim-smartinput')
 function! s:bundle.hooks.on_source(bundle)
@@ -168,7 +173,11 @@ let NERDShutUp = 1
 "let g:syntastic_check_on_open = 1
 " ファイルオープン時はチェックしない(ファイル保存時にチェックする)
 let g:syntastic_check_on_open = 0
-let g:syntastic_disabled_filetypes=['java', 'scala']
+let g:syntastic_mode_map = { "mode": "active",
+                           \ "active_filetypes": [],
+                           \ "passive_filetypes": ["scala"] }
+
+
 
 "-----------------------------------
 " vim-indent-guides
@@ -237,13 +246,6 @@ nnoremap <silent> Uv :<C-u>Vf<CR>
 if has('mac')
   let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
 endif
-
-
-"-----------------------------------
-" eclim
-"-----------------------------------
-autocmd FileType scala nnoremap <C-]> :ScalaSearch<CR>
-let g:EclimScalaValidate = 0
 
 
 "-----------------------------------
