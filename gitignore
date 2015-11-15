@@ -9,3 +9,5 @@ pyenv
 
 .cache-*
 
+.python-version
+
