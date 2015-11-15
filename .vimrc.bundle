@@ -8,19 +8,21 @@
 let s:is_windows = has('win32') || has('win64')
 
 if has('vim_starting')
-  if s:is_windows
-    let s:bundlepath='~/vimfiles/'
-  else
-    let s:bundlepath='~/.vim/'
+  if &compatible
+    set nocompatible               " Be iMproved
   endif
-  execute 'set runtimepath+=' . expand(s:bundlepath . 'bundle/neobundle.vim')
-  call neobundle#begin(expand(s:bundlepath . '/bundle'))
+
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
+
+call neobundle#begin(expand('~/.vim/bundle/'))
 
 " gitレポジトリをcloneする際のプロトコル
 " proxy環境もあるのでhttpにする
 " デフォルトは git が使用される
 let g:neobundle_default_git_protocol = 'https'
+
+NeoBundleFetch 'Shougo/neobundle.vim'
 
 
 "-----------------------------------
