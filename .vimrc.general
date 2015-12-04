@@ -16,21 +16,23 @@ set splitright
 
 
 "-----------------------------------
-" View
+" Color
 "-----------------------------------
-" カラー
-set t_Co=256
-let g:solarized_termcolors=256
+"set t_Co=256
+"let g:solarized_termcolors=256
 if !has("gui_running")
   set background=dark
   "set background=light
+
+  let g:seoul256_background = 235
+  colorscheme seoul256
 
   "colorscheme solarized
   "colorscheme desert256
   "colorscheme tanacasino
   "colorscheme Tomorrow-Night-Bright
   "colorscheme jellybeans
-  colorscheme PaperColor
+  "colorscheme PaperColor
 endif
 
 

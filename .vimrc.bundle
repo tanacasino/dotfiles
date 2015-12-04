@@ -109,6 +109,7 @@ NeoBundle 'rhysd/try-colorscheme.vim'
 NeoBundle 'tanacasino/papercolor-theme', 'custom'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'flazz/vim-colorschemes'
+NeoBundle 'junegunn/seoul256.vim'
 
 
 call neobundle#end()
