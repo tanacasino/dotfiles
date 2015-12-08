@@ -112,3 +112,64 @@ else
 endif
 " Undoファイル
 set noundofile
+
+
+"-----------------------------------
+" Indent
+"-----------------------------------
+" テキスト幅(自動改行の防止)
+set tw=0
+" タブの画面上での幅
+set tabstop=4
+" タブをスペース展開する
+set expandtab
+" インデント時のスペース数
+set shiftwidth=4
+" タブが押された場合にtabstopでなく、shiftwidthの数だけインデントする
+set smarttab
+" 自動インデント
+set autoindent
+
+
+"-----------------------------------
+" Key mappings
+"-----------------------------------
+" pluginのキーマップは .vimrc.pluginに書く
+
+" Leader key
+let mapleader=","
+
+" turn off search highlight.
+nmap <ESC><ESC> :nohlsearch<CR><ESC>
+
+
+"-----------------------------------
+" Omni function
+"-----------------------------------
+set completeopt=preview,menuone
+
+" ファイルタイプ別の設定
+if has("autocmd")
+  autocmd Filetype java setlocal omnifunc=javacomplete#Complete
+  autocmd Filetype java setlocal completefunc=javacomplete#CompleteParamsInfo
+  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+  autocmd FileType textile setlocal omnifunc=htmlcomplete#CompleteTags
+  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+  autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+endif
+
+
+"-----------------------------------
+" Custom Command
+"-----------------------------------
+" Toggle View
+" puttyやteratermを使っていてvimの画面でcopy/pasteを使う場合に、使いやすいように切り替える
+command! -nargs=0 CPView set nolist nonumber
+command! -nargs=0 DevView set list number
+
+" CdCurrent (import from kaoriya vim cmdex.vim)
+command! -nargs=0 CdCurrent cd %:p:h
+
