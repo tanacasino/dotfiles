@@ -9,7 +9,11 @@ filetype plugin indent off
 
 " Configure Bundle
 " Use NeoBundle (https://github.com/Shougo/neobundle.vim)
-source ~/.vimrc.bundle
+"source ~/.vimrc.bundle
+
+" Install Plugins
+" Use vim-plug ()
+source ~/.vimrc.plug
 
 " Configure General
 source ~/.vimrc.general

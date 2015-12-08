@@ -1,0 +1,85 @@
+"-----------------------------------
+" Plugins
+"-----------------------------------
+call plug#begin('~/.vim/plugged')
+
+
+"-----------------------------------
+" Basic tools
+"-----------------------------------
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/neomru.vim'
+Plug 'Shougo/vimfiler'
+Plug 'Shougo/vimshell'
+
+
+" Auto Complete/Snippets
+" TODO 見直し
+Plug 'Shougo/neocomplete'
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
+Plug 'honza/vim-snippets'
+
+
+Plug 'bling/vim-airline'
+Plug 'houtsnip/vim-emacscommandline'
+Plug 'majutsushi/tagbar'
+Plug 'tsukkee/unite-tag'
+Plug 'lambdalisue/unite-grep-vcs'
+Plug 'quickrun.vim'
+Plug 'scrooloose/syntastic'
+Plug 'sudo.vim'
+Plug 'thinca/vim-ref'
+Plug 'thinca/vim-visualstar'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'haya14busa/incsearch-fuzzy.vim'
+Plug 'haya14busa/incsearch.vim'
+Plug 'osyo-manga/vim-precious'
+Plug 'Shougo/context_filetype.vim'
+Plug 'kana/vim-smartinput'
+Plug 'kana/vim-smartchr'
+
+
+Plug 'L9'
+Plug 'The-NERD-Commenter'
+Plug 'The-NERD-tree'
+Plug 'fuenor/qfixgrep'
+Plug 'matchit.zip'
+Plug 'thinca/vim-qfreplace'
+Plug 'easymotion/vim-easymotion'
+
+
+" Language
+Plug 'derekwyatt/vim-scala'
+Plug 'derekwyatt/vim-sbt'
+Plug 'ensime/ensime-vim'
+Plug 'vim-ruby/vim-ruby'
+Plug 'wting/rust.vim'
+Plug 'fatih/vim-go'
+Plug 'tpope/vim-markdown'
+Plug 'timcharper/textile.vim'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'ap/vim-css-color'
+Plug 'mattn/emmet-vim'
+
+
+" Text Objects
+Plug 'tpope/vim-surround'
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-indent'
+
+" Colorschemes
+Plug 'ujihisa/unite-colorscheme'
+Plug 'rhysd/try-colorscheme.vim'
+Plug 'tanacasino/papercolor-theme', 'custom'
+Plug 'altercation/vim-colors-solarized'
+Plug 'flazz/vim-colorschemes'
+Plug 'junegunn/seoul256.vim'
+
+
+call plug#end()
+
