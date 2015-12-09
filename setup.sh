@@ -105,10 +105,11 @@ VIMFILES=".vim .vimrc* .gvimrc"
 for dotfile in $VIMFILES; do
     linkit $dotfile $HOME/
 done
-NEO_BUNDLE=$HOME/.vim/bundle/neobundle.vim
-if [ ! -d $NEO_BUNDLE ]; then
-    git clone https://github.com/Shougo/neobundle.vim $NEO_BUNDLE
-fi
+# NeoBundleからvim-plugに乗り換えテスト中のため以下はコメントアウト
+#NEO_BUNDLE=$HOME/.vim/bundle/neobundle.vim
+#if [ ! -d $NEO_BUNDLE ]; then
+#    git clone https://github.com/Shougo/neobundle.vim $NEO_BUNDLE
+#fi
 
 
 ### tmux plugin manager ###
