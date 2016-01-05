@@ -16,7 +16,9 @@ set background=dark
 "colorscheme solarized
 "colorscheme desertEx
 "colorscheme tanacasino
-colorscheme PaperColor
+"colorscheme PaperColor
+let g:seoul256_background = 235
+colorscheme seoul256
 
 " フォント
 if has('win32')
@@ -27,3 +29,4 @@ elseif has('mac')
 else
   set guifont=Migu\ 1M\ 12
 endif
+
