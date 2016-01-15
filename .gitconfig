@@ -4,6 +4,7 @@
 
 [color]
 	ui = true
+	status = always
 
 [alias]
 	a = add
