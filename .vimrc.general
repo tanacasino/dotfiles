@@ -172,4 +172,5 @@ command! -nargs=0 DevView set list number
 
 " CdCurrent (import from kaoriya vim cmdex.vim)
 command! -nargs=0 CdCurrent cd %:p:h
+command! -nargs=0 Scratch new | setlocal bt=nofile noswf | let b:cmdex_scratch = 1
 
