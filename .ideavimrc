@@ -3,6 +3,10 @@
 " OSのクリップボードにyankする
 set clipboard
 
+" 表示
+set number
+set list
+
 
 " 検索関連
 set ignorecase
@@ -15,11 +19,8 @@ set nowrapscan
 nnoremap x "_x
 vnoremap x "_x
 
-"vv で行末まで選択
-vnoremap v ^$h
 
-
-"インサートモードで bash 風キーマップ
+"インサートモードで bash 風キーマップが使える
 inoremap <C-a> <C-o>^
 inoremap <C-e> <C-o>$<Right>
 inoremap <C-b> <Left>
@@ -30,6 +31,13 @@ inoremap <C-h> <BS>
 inoremap <C-u> <C-o>d^
 inoremap <C-w> <C-o>db
 
+
 " turn off search highlight.
 nmap <ESC><ESC> :nohlsearch<CR><ESC>
+
+
+" IDE Action を呼び出す keymap
+map Uf :action RecentFiles<CR>
+map Ub :action RecentFiles<CR>
+map Ur :action RenameElement<CR>
 
