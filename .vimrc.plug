@@ -11,6 +11,8 @@ Plug 'Shougo/neomru.vim'
 Plug 'Shougo/vimfiler'
 Plug 'Shougo/vimshell'
 
+Plug 'mattn/webapi-vim'
+Plug 'tyru/open-browser.vim'
 
 " Auto Complete/Snippets
 Plug 'Shougo/neocomplete'
@@ -23,7 +25,7 @@ Plug 'honza/vim-snippets'
 Plug 'ap/vim-css-color', { 'for': 'css' }
 Plug 'derekwyatt/vim-sbt'
 Plug 'derekwyatt/vim-scala'
-Plug 'ensime/ensime-vim', { 'for': 'scala' }
+"Plug 'ensime/ensime-vim', { 'for': 'scala' }
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
 Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
@@ -33,6 +35,7 @@ Plug 'timcharper/textile.vim'
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby'}
 Plug 'wting/rust.vim', { 'for': 'rust' }
+Plug 'leafgarland/typescript-vim'
 
 
 " Text Objects
@@ -42,7 +45,7 @@ Plug 'tpope/vim-surround'
 
 
 " Colorschemes
-Plug 'junegunn/seoul256.vim'
+Plug 'tanacasino/seoul256.vim'
 Plug 'tanacasino/papercolor-theme', { 'branch': 'custom' }
 Plug 'ujihisa/unite-colorscheme'
 
@@ -51,7 +54,6 @@ Plug 'ujihisa/unite-colorscheme'
 Plug 'L9'
 Plug 'Shougo/context_filetype.vim'
 Plug 'The-NERD-Commenter'
-Plug 'The-NERD-tree', { 'for': 'NERDTreeToggle' }
 Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-airline'
 Plug 'easymotion/vim-easymotion'
