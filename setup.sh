@@ -16,7 +16,6 @@ function usage {
     echo "  -X, --xapt         Install apt-desktop-packages"
     echo "  -V, --no-vim       No install vim settings"
     echo "  -G, --no-git       No install git settings"
-    echo "  -O, --no-oh-my-zsh No install oh-my-zsh"
     echo "  -h, --help         Print this usage message"
     echo ""
 }
@@ -30,7 +29,6 @@ function process_args {
         -x|--xapt)         xapt=1;;
         -V|--no-vim)       vim=0;;
         -G|--no-git)       git=0;;
-        -O|--no-oh-my-zsh) ohmyzsh=0;;
         -h|--help)         usage; exit 0;;
         *)                 usage; exit 1;;
     esac
@@ -40,7 +38,6 @@ apt=0
 xapt=0
 vim=1
 git=1
-ohmyzsh=1
 
 for arg in "$@"; do
     process_args $arg
@@ -87,17 +84,8 @@ fi
 # Conf files
 #########################
 ### zsh ###
-if [ $ohmyzsh -eq 1 ]; then
-    OH_MY_ZSH=$HOME/.oh-my-zsh
-    if [ ! -d $OH_MY_ZSH ]; then
-        git clone https://github.com/robbyrussell/oh-my-zsh.git "$OH_MY_ZSH"
-        linkit tanacasino.zsh       "$OH_MY_ZSH/custom/"
-        linkit tanacasino.zsh-theme "$OH_MY_ZSH/themes/"
-        linkit .zshrc               "$HOME/"
-    fi
-else
-    linkit zshrc-without-oh-my-zsh "$HOME/.zshrc"
-fi
+git clone https://github.com/b4b4r07/zplug ~/.zplug
+linkit .zshrc $HOME/
 
 
 ### vim ###
@@ -105,11 +93,6 @@ VIMFILES=".vim .vimrc* .gvimrc"
 for dotfile in $VIMFILES; do
     linkit $dotfile $HOME/
 done
-# NeoBundleからvim-plugに乗り換えテスト中のため以下はコメントアウト
-#NEO_BUNDLE=$HOME/.vim/bundle/neobundle.vim
-#if [ ! -d $NEO_BUNDLE ]; then
-#    git clone https://github.com/Shougo/neobundle.vim $NEO_BUNDLE
-#fi
 
 
 ### tmux plugin manager ###
@@ -131,3 +114,4 @@ done
 
 # global gitignore
 linkit gitignore $HOME/.gitignore
+

@@ -1,37 +1,210 @@
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+#
+# this file is https://github.com/tanacasino/.zshrc
+# - Use zplug: git clone https://github.com/b4b4r07/zplug ~/.zplug
+#
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="tanacasino"
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+########################
+# environment variables
+########################
+# Japanese related
+export LANG=ja_JP.UTF-8
+export LC_CTYPE=ja_JP.UTF-8
+export LESSCHARSET=utf-8
 
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
+# vim vim vim
+export EDITOR=vim
 
-# Comment this out to disable weekly auto-update checks
-DISABLE_AUTO_UPDATE="true"
 
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
+########################
+# zsh options
+########################
+# keybind
+bindkey -e
 
-# Uncomment following line if you want to disable autosetting terminal title.
-DISABLE_AUTO_TITLE="true"
+# no share history
+setopt append_history no_inc_append_history no_share_history
 
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
+# right prompt auto hidden
+setopt transient_rprompt
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
+# no spell check
+unsetopt correct
+unsetopt correct_all
+
+autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+add-zsh-hook chpwd chpwd_recent_dirs
+
+
+########################
+# path
+########################
+typeset -U path
+path=(
+    $HOME/bin(N-/)
+    $HOME/local/bin(N-/)
+    $HOME/homebrew/bin(N-/)
+    $path
+)
+
+
+########################
+# alias
+########################
 if [ `uname` = "Darwin" ]; then
-    plugins=(z git tmux pip golang rbenv pyenv vagrant node nvm heroku osx brew)
+    # GNU (prereq: brew install coreutils)
+    alias ls='gls --color=auto'
+    if [ -f $HOME/.dir_colors ]; then
+        eval $(gdircolors -b $HOME/.dir_colors)
+    fi
 else
-    plugins=(z git tmux pip golang rbenv pyenv vagrant node nvm heroku)
+    alias ls='ls --color=auto'
+    if [ -f $HOME/.dir_colors ]; then
+        eval $(dircolors -b $HOME/.dir_colors)
+    fi
 fi
-source $ZSH/oh-my-zsh.sh
+alias l='ls -CF'
+alias ll='ls -lF'
+alias la='ls -A'
+alias lh='ll -h'
+alias lla='ls -AlF'
+
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+alias hist='history'
+
+# python
+alias ipython='PAGER="less -r" ipython'
+
+# git
+alias g='git'
+
+alias gb='git branch'
+alias gc='git commit -v'
+alias gc!='git commit -v --amend'
+alias gco='git checkout'
+alias gd='git diff'
+alias gf='git fetch'
+alias ggpush='git push origin $(git_current_branch)'
+alias glg='git log --stat --color'
+alias glgp='git log --stat --color -p'
+alias glgg='git log --graph --color'
+alias glgga='git log --graph --decorate --all'
+alias glgm='git log --graph --max-count=10'
+alias gsb='git status -sb'
+alias gst='git status'
+
+# open ssh config with vim
+alias vissh='vim $HOME/.ssh/config'
+
+# tmux
+alias t='tmux'
+
+
+########################
+# functions
+# TODO(tanacasino): Rewrite this using zplug local
+########################
+
+function git_current_branch() {
+  local ref
+  ref=$(command git symbolic-ref --quiet HEAD 2> /dev/null)
+  local ret=$?
+  if [[ $ret != 0 ]]; then
+    [[ $ret == 128 ]] && return  # no git repo.
+    ref=$(command git rev-parse --short HEAD 2> /dev/null) || return
+  fi
+  echo ${ref#refs/heads/}
+}
+
+function alc() {
+    if which w3m > /dev/null 2>&1; then
+        if [ -r $HOME/.w3m/config ]; then
+            if grep -q ^http_proxy $HOME/.w3m/config; then
+                eval `grep ^http_proxy ~/.w3m/config`
+            fi
+        fi
+        if [ -n "$http_proxy" ]; then
+            http_proxy=$http_proxy w3m "http://eow.alc.co.jp/$*/UTF-8/?ref=sa" | sed "1,37d" | less
+        else
+            w3m "http://eow.alc.co.jp/$*/UTF-8/?ref=sa" | sed "1,37d" | less
+        fi
+    else
+        echo "w3m not found"
+    fi
+}
+
+function agvim () {
+    vim $(ag $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
+}
+
+function tmuxps() {
+    tmuxp load $(ls ~/.tmuxp | peco --query "$LBUFFER")
+}
+
+
+########################
+# zplug configuration
+########################
+source ~/.zplug/zplug
+
+# completions for general commands
+zplug "zsh-users/zsh-completions"
+
+# syntax highlight for command line
+zplug "zsh-users/zsh-syntax-highlighting", nice:10
+
+# z/autojump like cd
+zplug "b4b4r07/enhancd", of:enhancd.sh
+export ENHANCD_FILTER=peco:fzf
+
+# utility functions using peco/percol/fzf
+zplug "mollifier/anyframe"
+
+bindkey '^r' anyframe-widget-execute-history
+
+bindkey '^xg' anyframe-widget-cd-ghq-repository
+bindkey '^x^g' anyframe-widget-cd-ghq-repository
+
+bindkey '^gb' anyframe-widget-insert-git-branch
+bindkey '^g^b' anyframe-widget-insert-git-branch
+
+# cd git root directory
+zplug "mollifier/cd-gitroot"
+
+# async plugin
+zplug "mafredri/zsh-async"
+
+# fast/clean prompt theme
+zplug "sindresorhus/pure"
+
+# emoji-cli
+zplug "stedolan/jq", \
+    as:command, \
+    file:jq, \
+    from:gh-r \
+    | zplug "b4b4r07/emoji-cli", if:"which jq"
+
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+# Then, source plugins and add commands to $PATH
+# TODO(tanacasino): エラーになるので調査が必要
+# cache のクリア手順メモ
+# zplug clear --force && rm {$ZPLUG_HOME/,~/.}zcompdump
+# zplug load --verbose
+zplug load > /dev/null
+
+
+########################
+# localrc
+########################
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
