@@ -84,8 +84,12 @@ fi
 # Conf files
 #########################
 ### zsh ###
-git clone https://github.com/b4b4r07/zplug ~/.zplug
 linkit .zshrc $HOME/
+
+ZPLUG_DIR="$HOME/.zplug"
+if [ ! -d "$ZPLUG_DIR" ]; then
+    git clone https://github.com/b4b4r07/zplug "$ZPLUG_DIR"
+fi
 
 
 ### vim ###
