@@ -32,8 +32,23 @@ setopt transient_rprompt
 unsetopt correct
 unsetopt correct_all
 
+autoload -U compinit
+compinit
+
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
 add-zsh-hook chpwd chpwd_recent_dirs
+
+setopt auto_cd
+setopt auto_pushd
+
+autoload -U promptinit && promptinit
+
+# history
+export HISTFILE=${HOME}/.zsh_history
+export HISTSIZE=1000
+export SAVEHIST=100000
+setopt hist_ignore_dups
+setopt EXTENDED_HISTORY
 
 
 ########################
@@ -159,6 +174,7 @@ zplug "zsh-users/zsh-syntax-highlighting", nice:10
 # z/autojump like cd
 zplug "b4b4r07/enhancd", of:enhancd.sh
 export ENHANCD_FILTER=peco:fzf
+export ENHANCD_COMMAND='z'
 
 # utility functions using peco/percol/fzf
 zplug "mollifier/anyframe"
