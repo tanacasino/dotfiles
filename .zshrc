@@ -181,8 +181,8 @@ zplug "mollifier/anyframe"
 
 bindkey '^r' anyframe-widget-execute-history
 
-bindkey '^xg' anyframe-widget-cd-ghq-repository
-bindkey '^x^g' anyframe-widget-cd-ghq-repository
+bindkey '^gh' anyframe-widget-cd-ghq-repository
+bindkey '^g^h' anyframe-widget-cd-ghq-repository
 
 bindkey '^gb' anyframe-widget-insert-git-branch
 bindkey '^g^b' anyframe-widget-insert-git-branch
