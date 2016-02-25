@@ -85,6 +85,7 @@ fi
 #########################
 ### zsh ###
 linkit .zshrc $HOME/
+linkit .zsh $HOME/
 
 ZPLUG_DIR="$HOME/.zplug"
 if [ ! -d "$ZPLUG_DIR" ]; then
