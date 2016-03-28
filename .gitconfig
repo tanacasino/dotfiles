@@ -5,6 +5,7 @@
 [color]
 	ui = true
 	status = always
+	diff = always
 
 [alias]
 	a = add
