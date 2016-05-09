@@ -164,7 +164,7 @@ function tmuxps() {
 ########################
 # zplug configuration
 ########################
-source ~/.zplug/zplug
+source ~/.zplug/init.zsh
 
 # my local configuration
 zplug "~/.zsh", from:local
@@ -176,7 +176,7 @@ zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-syntax-highlighting", nice:10
 
 # z/autojump like cd
-zplug "b4b4r07/enhancd", of:enhancd.sh
+zplug "b4b4r07/enhancd", use:enhancd.sh
 export ENHANCD_FILTER=peco:fzf
 export ENHANCD_COMMAND='z'
 
@@ -200,12 +200,14 @@ zplug "mafredri/zsh-async"
 # fast/clean prompt theme
 zplug "sindresorhus/pure"
 
-# emoji-cli
+# jq
 zplug "stedolan/jq", \
+    from:gh-r, \
     as:command, \
-    file:jq, \
-    from:gh-r \
-    | zplug "b4b4r07/emoji-cli", if:"which jq"
+    rename-to:jq
+
+# emoji-cli
+zplug "b4b4r07/emoji-cli", on:"stedolan/jq"
 
 
 # Install plugins if there are plugins that have not been installed
