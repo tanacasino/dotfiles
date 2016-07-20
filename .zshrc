@@ -176,8 +176,9 @@ zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-syntax-highlighting", nice:10
 
 # z/autojump like cd
-zplug "b4b4r07/enhancd", use:init.sh
+export ENHANCD_COMMAND=z
 export ENHANCD_FILTER=peco:fzf
+zplug "b4b4r07/enhancd", use:init.sh
 
 # utility functions using peco/percol/fzf
 zplug "mollifier/anyframe"
