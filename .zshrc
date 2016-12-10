@@ -60,6 +60,7 @@ path=(
     $HOME/bin(N-/)
     $HOME/local/bin(N-/)
     $HOME/homebrew/bin(N-/)
+    /usr/local/bin
     $path
 )
 
@@ -176,8 +177,8 @@ zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-syntax-highlighting", nice:10
 
 # z/autojump like cd
-export ENHANCD_COMMAND=z
-export ENHANCD_FILTER=peco:fzf
+#export ENHANCD_COMMAND=cd
+export ENHANCD_FILTER=fzy:peco
 zplug "b4b4r07/enhancd", use:init.sh
 
 # utility functions using peco/percol/fzf
