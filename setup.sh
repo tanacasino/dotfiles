@@ -100,7 +100,8 @@ for dotfile in $VIMFILES; do
 done
 
 
-### tmux plugin manager ###
+### tmux ###
+linkit .tmux.conf $HOME/
 TMUX_PLUGINS_DIR="$HOME/.tmux/plugins"
 mkdir -p "$TMUX_PLUGINS_DIR"
 if [ ! -d "$TMUX_PLUGINS_DIR/tpm" ]; then
@@ -108,11 +109,16 @@ if [ ! -d "$TMUX_PLUGINS_DIR/tpm" ]; then
 fi
 
 
-### Others(git, hg, GNU screen) ###
-DOTFILES=".hgrc .gitconfig .dir_colors"
-# NOTE when use byobu, no need screenrc and .tmux.conf
-#DOTFILES+=" .screenrc"
-DOTFILES+=" .tmux.conf"
+### fish ###
+FISH_CONFIG_DIR="$HOME/.config/fish"
+FISHER_MAN_FUNCTION="$FISH_CONFIG_DIR/functions/fisher.fish"
+mkdir -p "$FISH_CONFIG_DIR"
+if [ ! -f "$FISHER_MAN_FUNCTION" ]; then
+    curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
+fi
+
+### Others(git, hg, screen) ###
+DOTFILES=".gitconfig .hgrc .dir_colors .screenrc"
 for dotfile in $DOTFILES; do
     linkit $dotfile $HOME/
 done
