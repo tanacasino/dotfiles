@@ -12,7 +12,7 @@ alias gsb='git status -sb'
 alias gst='git status'
 alias gd='git diff'
 alias gf='git fetch'
-alias ggpush='git push origin (git_current_branch)'
+alias ggpush='git push origin (git_branch_name)'
 alias gb='git branch'
 alias gc='git commit -v'
 alias 'gc!'='git commit -v --amend'
@@ -33,4 +33,10 @@ alias lh='ll -h'
 alias ll='ls -lF'
 alias lla='ls -AlF'
 alias vissh='vim $HOME/.ssh/config'
+
+
+###########
+# Bind    #
+###########
+bind \cf forward-char
 
