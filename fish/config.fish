@@ -6,6 +6,7 @@
 ############
 # Variable #
 ############
+set -x FZF_DEFAULT_COMMAND 'ag -g ""'
 set -x FZF_DEFAULT_OPTS "--reverse --inline-info"
 
 
