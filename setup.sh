@@ -116,6 +116,9 @@ mkdir -p "$FISH_CONFIG_DIR"
 if [ ! -f "$FISHER_MAN_FUNCTION" ]; then
     curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
 fi
+linkit fish/config.fish "$FISH_CONFIG_DIR/config.fish"
+linkit fish/fishfile "$FISH_CONFIG_DIR/fishfile"
+fish -c "fisher" || true
 
 ### Others(git, hg, screen) ###
 DOTFILES=".gitconfig .hgrc .dir_colors .screenrc"
