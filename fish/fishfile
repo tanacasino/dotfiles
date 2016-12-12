@@ -1,5 +1,8 @@
+fisherman/anicode
 fisherman/await
 oh-my-fish/plugin-brew
+fisherman/choices
+oh-my-fish/plugin-config
 fisherman/fishkit
 fisherman/fzf
 fisherman/get
@@ -9,6 +12,10 @@ fisherman/imgcat
 fisherman/last_job_id
 fisherman/menu
 brandonweiss/pure.fish
+fisherman/pyenv
 oh-my-fish/plugin-python
+fisherman/rbenv
+fisherman/spin
 oh-my-fish/plugin-ssh
+oh-my-fish/plugin-weather
 fisherman/z
