@@ -12,25 +12,20 @@ set -x FZF_DEFAULT_OPTS "--reverse --inline-info"
 
 
 ############
-# Bind     #
-############
-bind \cf forward-char
-
-
-
-############
 # Function #
 ############
-# cd to ghq repository dir with fzf
-function __fzf_ghq_cd
-  set -q FZF_CD_COMMAND
-  or set -l FZF_CD_COMMAND "
-  command ghq list --full-path"
-  fish -c "$FZF_CD_COMMAND" | __fzfcmd -m $FZF_CD_OPTS | read -la select
+function gcd -d 'Change directory from ghq list'
+  ghq list --full-path | __fzfcmd -m | read -la select
   if test ! (count $select) -eq 0
     cd "$select"
   end
   commandline -f repaint
+end
+
+
+function vimf -d 'Open with vim in git files'
+  command git ls-files | __fzfcmd -m | __fzfescape | read -la selects
+  and vim $selects
 end
 
 
@@ -53,11 +48,16 @@ alias 'gc!'='git commit -v --amend'
 alias gco='git checkout'
 alias glg='git log --stat --color'
 alias glgg='git log --graph --color'
-alias gcd='__fzf_ghq_cd'
 
 # tmux
-alias tmux='env TERM=xterm-256color tmux'
-alias t=tmux
+function tmux
+  env TERM='xterm-256color' tmux $argv
+end
+
+function t
+    tmux $argv
+end
+
 
 # basic
 alias hist=history
@@ -68,4 +68,20 @@ alias lh='ll -h'
 alias ll='ls -lF'
 alias lla='ls -AlF'
 alias vissh='vim $HOME/.ssh/config'
+
+
+
+############
+# Bind     #
+############
+bind \cf forward-char
+
+
+
+############
+# Local    #
+############
+if test -f ~/.config/fish/local.fish
+    . ~/.config/fish/local.fish
+end
 
