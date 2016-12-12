@@ -1,5 +1,11 @@
 /* sbt alias  */
 
+addCommandAlias("ls", "projects")
+
+addCommandAlias("cd", "project")
+
+addCommandAlias("coffeeBreak", ";clean ;update ;compile ;test:compile ;test")
+
 addCommandAlias("c", "compile")
 
 addCommandAlias("cc", "~compile")
