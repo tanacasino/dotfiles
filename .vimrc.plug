@@ -36,6 +36,7 @@ Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby'}
 Plug 'wting/rust.vim', { 'for': 'rust' }
 Plug 'leafgarland/typescript-vim'
+Plug 'dag/vim-fish'
 
 
 " Text Objects
