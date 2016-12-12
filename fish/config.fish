@@ -6,7 +6,7 @@
 ############
 # Variable #
 ############
-set -U FZF_DEFAULT_OPTS "--reverse --inline-info"
+set -x FZF_DEFAULT_OPTS "--reverse --inline-info"
 
 
 
@@ -37,6 +37,7 @@ end
 ############
 # Alias    #
 ############
+# TODO alias should be replace function (fish rule)
 # git
 alias g='git'
 alias gsb='git status -sb'
