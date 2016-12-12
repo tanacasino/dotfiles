@@ -9,9 +9,10 @@
 
 [alias]
 	a = add
-	f = fetch
+	f = fetch --verbose
+	fa = fetch --all --verbose --tags --prune
 	co = checkout
-	ci = commit
+	ci = commit -v
 	st = status -sb
 	br = branch
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
@@ -22,6 +23,9 @@
 	editor = vim
 	autoCRLF = false
 	pager = less -SRFX
+
+[diff]
+	indentHeuristic = on
 
 [credential]
 	helper = cache --timeout=3600
