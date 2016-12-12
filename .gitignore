@@ -9,3 +9,6 @@
 .vim/swap/*.swo
 .vim/swap/*.swn
 
+sbt/plugins/project
+sbt/plugins/target
+
