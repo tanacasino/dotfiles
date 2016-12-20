@@ -8,7 +8,24 @@
 ############
 set -x FZF_DEFAULT_COMMAND 'ag -g ""'
 set -x FZF_DEFAULT_OPTS "--reverse --inline-info"
+set -x GOPATH $HOME/devel
 
+function insert-to-path -d 'Insert dir to PATH'
+    set -l dir ''
+    if test (count $argv) -ne 0
+        set dir $argv[1]
+    end
+
+    if test -d $dir
+        if not contains $dir $PATH
+            set PATH $PATH $dir
+        end
+    end
+end
+
+insert-to-path $HOME/bin
+insert-to-path $HOME/devel/bin
+insert-to-path $HOME/.nodebrew/current/bin
 
 
 ############
