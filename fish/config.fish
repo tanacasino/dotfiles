@@ -18,7 +18,7 @@ function insert-to-path -d 'Insert dir to PATH'
 
     if test -d $dir
         if not contains $dir $PATH
-            set PATH $PATH $dir
+            set PATH $dir $PATH
         end
     end
 end
