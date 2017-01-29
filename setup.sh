@@ -120,8 +120,14 @@ linkit fish/config.fish "$FISH_CONFIG_DIR/config.fish"
 linkit fish/fishfile "$FISH_CONFIG_DIR/fishfile"
 fish -c "fisher" || true
 
-### Others(git, hg, screen) ###
-DOTFILES=".gitconfig .hgrc .dir_colors .screenrc"
+### bash_it ###
+BASH_IT_DIR="$HOME/.bash_it"
+if [ ! -d "$BASH_IT_DIR" ]; then
+    git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
+fi
+
+### Others(bash, git, hg, screen) ###
+DOTFILES=".bashrc .bash_profile .inputrc .gitconfig .hgrc .dir_colors .screenrc"
 for dotfile in $DOTFILES; do
     linkit $dotfile $HOME/
 done
