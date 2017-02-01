@@ -6,6 +6,8 @@ SCM_THEME_PROMPT_DIRTY=" ${bold_red}!${normal}"
 SCM_THEME_PROMPT_CLEAN=" ${green}-${normal}"
 SCM_GIT_CHAR="${green}G${normal}"
 
+SCM_GIT_AHEAD_CHAR=" ↑ "
+SCM_GIT_BEHIND_CHAR=" ↓ "
 
 scm_prompt() {
     CHAR=$(scm_char)
