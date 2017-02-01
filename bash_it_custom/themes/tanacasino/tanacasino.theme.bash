@@ -9,6 +9,9 @@ SCM_GIT_CHAR="${green}G${normal}"
 SCM_GIT_AHEAD_CHAR=" ↑ "
 SCM_GIT_BEHIND_CHAR=" ↓ "
 
+SCM_THEME_BRANCH_TRACK_PREFIX=' →  '
+SCM_THEME_BRANCH_GONE_PREFIX=' ⇢  '
+
 scm_prompt() {
     CHAR=$(scm_char)
     if [ $CHAR = $SCM_NONE_CHAR ]; then
