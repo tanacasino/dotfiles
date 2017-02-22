@@ -1,5 +1,3 @@
-/* sbt alias  */
-
 addCommandAlias("ls", "projects")
 
 addCommandAlias("cd", "project")

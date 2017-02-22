@@ -3,8 +3,7 @@
 #############################
 # TODO(tanacasino): 優先順位を変えたいだけなので、重複を取り除いてソートするようにしたい
 export PATH="/usr/local/bin:$PATH"
-
-
+export PATH="$HOME/.nodenv/bin:$PATH"
 
 #############################
 # Functions
@@ -35,4 +34,10 @@ function git_branch_name {
 
 alias ggpush='git push origin $(git_branch_name)'
 
+
+#############################
+# Others
+#############################
+# init nodenv
+eval "$(nodenv init -)"
 
