@@ -36,6 +36,15 @@ alias ggpush='git push origin $(git_branch_name)'
 alias ggpushf='git push -f origin $(git_branch_name)'
 
 
+
+#############################
+# Completions
+#############################
+# alias g='git'
+complete -o bashdefault -o default -o nospace -F __git_wrap__git_main g
+
+
+
 #############################
 # Others
 #############################
