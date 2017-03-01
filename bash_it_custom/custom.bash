@@ -33,6 +33,7 @@ function git_branch_name {
 #############################
 
 alias ggpush='git push origin $(git_branch_name)'
+alias ggpushf='git push -f origin $(git_branch_name)'
 
 
 #############################
