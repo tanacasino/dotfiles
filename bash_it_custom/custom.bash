@@ -4,6 +4,11 @@
 # TODO(tanacasino): 優先順位を変えたいだけなので、重複を取り除いてソートするようにしたい
 export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/.nodenv/bin:$PATH"
+export FZF_DEFAULT_COMMAND='ag -g ""'
+export FZF_DEFAULT_OPTS="--reverse --inline-info"
+export GOPATH="$HOME/devel"
+export PATH="$GOPATH/bin:$PATH"
+
 
 #############################
 # Functions
@@ -34,6 +39,7 @@ function git_branch_name {
 
 alias ggpush='git push origin $(git_branch_name)'
 alias ggpushf='git push -f origin $(git_branch_name)'
+alias lock='/System/Library/CoreServices/Menu Extras/User.menu/Contents/Resources/CGSession -suspend'
 
 
 
