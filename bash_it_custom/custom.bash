@@ -39,7 +39,7 @@ function git_branch_name {
 
 alias ggpush='git push origin $(git_branch_name)'
 alias ggpushf='git push -f origin $(git_branch_name)'
-alias lock='/System/Library/CoreServices/Menu Extras/User.menu/Contents/Resources/CGSession -suspend'
+alias lock='"/System/Library/CoreServices/Menu Extras/User.menu/Contents/Resources/CGSession" -suspend'
 
 
 
