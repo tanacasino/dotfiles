@@ -6,9 +6,10 @@
 export FZF_DEFAULT_COMMAND='ag -g ""'
 export FZF_DEFAULT_OPTS="--reverse --inline-info"
 export GOPATH="$HOME/devel"
-export PATH="$GOPATH/bin:/usr/local/bin:$PATH"
-export PATH="$HOME/.nodenv/bin:$PATH"
 
+pathmunge "$GOPATH/bin"
+pathmunge "$HOME/.yarn/bin"
+pathmunge "$HOME/.nodenv/bin"
 
 
 #############################
