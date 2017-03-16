@@ -69,7 +69,7 @@ complete -o bashdefault -o default -o nospace -F __git_wrap__git_main g
 # Others
 #############################
 # init nodenv
-if which nodenv 2&>1 > /dev/null; then
+if which nodenv > /dev/null 2>&1; then
     eval "$(nodenv init -)"
 fi
 
