@@ -7,9 +7,9 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 export FZF_DEFAULT_OPTS="--reverse --inline-info"
 export GOPATH="$HOME/devel"
 
+pathmunge "$HOME/.nodenv/bin"
 pathmunge "$GOPATH/bin"
 pathmunge "$HOME/.yarn/bin"
-pathmunge "$HOME/.nodenv/bin"
 
 
 #############################
