@@ -39,7 +39,21 @@ function ghq_cd_repository() {
     fi
 }
 
+function git_checkout_fzf() {
+    # g br | grep -v '^*' | sed 's/^[ \t]*//''
+    local selected="$(git branch | grep -v '^*' | sed 's/^[ \t]*//' | $(__fzfcmd) --query="$READLINE_LINE")"
+    if [ -n "$selected" ]; then
+        echo git checkout "$selected"
+    fi
+}
+
+
+
+#############################
+# Key binding
+#############################
 bind '"\C-]": " \C-e\C-u`ghq_cd_repository`\e\C-e\e^\er"'
+bind '"\C-x\C-g": " \C-e\C-u`git_checkout_fzf`\e\C-e\e^\er"'
 
 
 
