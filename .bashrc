@@ -22,8 +22,15 @@ export SHORT_HOSTNAME=$(hostname -s)
 export BASH_IT_CUSTOM="$HOME/devel/src/github.com/tanacasino/dotfiles/bash_it_custom"
 
 export PATH_BACKUP="$PATH"
+
+# TODO(tanacasino): 適当すぎるやつ。PATHの順序と重複の取り除きをやりたいだけなので、それができるようにするべき。
 export PATH="/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 
 # Load Bash It
 source $BASH_IT/bash_it.sh
+
+# Load local config
+if [ -f ~/.bashrc.local ]; then
+    source ~/.bashrc.local
+fi
 
