@@ -1,8 +1,6 @@
 #############################
 # Variables
 #############################
-# TODO(tanacasino): 優先順位を変えたいだけなので、重複を取り除いてソートするようにしたい
-
 export FZF_DEFAULT_COMMAND='ag -g ""'
 export FZF_DEFAULT_OPTS="--reverse --inline-info"
 export GOPATH="$HOME/devel"
@@ -10,6 +8,7 @@ export GOPATH="$HOME/devel"
 pathmunge "$HOME/.nodenv/bin"
 pathmunge "$GOPATH/bin"
 pathmunge "$HOME/.yarn/bin"
+
 
 
 #############################
@@ -68,6 +67,8 @@ alias lla='ls -AlF'
 # git
 alias ggpush='git push origin $(git_branch_name)'
 alias ggpushf='git push -f origin $(git_branch_name)'
+
+# Mac
 alias lock='"/System/Library/CoreServices/Menu Extras/User.menu/Contents/Resources/CGSession" -suspend'
 
 
