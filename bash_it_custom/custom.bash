@@ -11,7 +11,6 @@ export GOPATH="$HOME/devel"
 # PATH
 #############################
 pathmunge "$GOPATH/bin"
-pathmunge "$HOME/.yarn/bin"
 
 
 
