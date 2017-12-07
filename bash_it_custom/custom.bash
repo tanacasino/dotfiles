@@ -54,6 +54,9 @@ function git_checkout_fzf() {
 #############################
 # Key binding
 #############################
+stty werase undef
+bind '"\C-w": backward-kill-word'
+
 bind '"\C-]": " \C-e\C-u`ghq_cd_repository`\e\C-e\e^\er"'
 bind '"\C-x\C-g": " \C-e\C-u`git_checkout_fzf`\e\C-e\e^\er"'
 
