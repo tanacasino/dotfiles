@@ -1,7 +1,8 @@
 " .ideavimrc
 
 " OSのクリップボードにyankする
-set clipboard
+set clipboard=unnamed,unnamedplus
+
 
 " 表示
 set number
