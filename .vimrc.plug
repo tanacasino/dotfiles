@@ -6,29 +6,30 @@ call plug#begin('~/.vim/plugged')
 
 " Basic tools
 " TODO(tanacasino): vimprocが必要か調査する
-Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+"Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Shougo/denite.nvim'
 Plug 'Shougo/neomru.vim'
 
 " Webブラウザを開く :OpenBrowser, :OpenBrowserSearch
 Plug 'tyru/open-browser.vim'
 
-" Auto Complete/Snippets
-" TODO(tanacasino): deopleteに移行する
-Plug 'Shougo/neocomplete'
+" 補完 deopleteと依存ライブラリ
+" NOTE(tanacasino): 別途 pip3 install neovim が必要な点に注意
+Plug 'Shougo/deoplete.nvim'
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
+" スニペット
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
-Plug 'honza/vim-snippets'
-
 
 " Language
 Plug 'ap/vim-css-color', { 'for': 'css' }
 Plug 'derekwyatt/vim-sbt'
-Plug 'derekwyatt/vim-scala'
+Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
 Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
-Plug 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim', { 'for': 'html' }
 Plug 'mustache/vim-mustache-handlebars', { 'for': 'hbs' }
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby'}

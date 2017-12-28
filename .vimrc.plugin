@@ -2,79 +2,12 @@
 " Plugin settings.
 "===================================
 
-"-----------------------------------
-" neocomplete
-"-----------------------------------
-" 補完機能の設定
-" NOTE ほとんどどっかのコピペなので整理が必要
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-" Use neocomplete.
-let g:neocomplete#enable_at_startup = 1
-" Use smartcase.
-let g:neocomplete#enable_smart_case = 1
-" Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-
-" Define dictionary.
-let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : '',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-        \ }
-
-" Define keyword.
-if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
-endif
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-
-" Plugin key-mappings.
-inoremap <expr><C-g>     neocomplete#undo_completion()
-inoremap <expr><C-l>     neocomplete#complete_common_string()
-
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return neocomplete#close_popup() . "\<CR>"
-  " For no inserting <CR> key.
-  "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
-endfunction
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplete#close_popup()
-inoremap <expr><C-e>  neocomplete#cancel_popup()
-
-
-if !exists('g:neocomplete#force_omni_input_patterns')
-  let g:neocomplete#force_omni_input_patterns = {}
-endif
-"let g:neocomplete#force_omni_input_patterns.java = '\k\.\k*'
-"let g:neocomplete#force_omni_input_patterns.scala = '\k\.\k*'
-
-
 "------------------------------------
-" ensime-vim
+" deoplete
 "------------------------------------
-" Use ensime as complete func
-autocmd FileType scala setlocal omnifunc=ensime#fun_en_complete_func
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
 
-" Add python path for websocket/six module
-let s:python_path = system('python3 -', 'import sys;sys.stdout.write(",".join(sys.path))')
-
-python3 <<EOM
-import sys
-import vim
-
-python_paths = vim.eval('s:python_path').split(',')
-for path in python_paths:
-    if not path in sys.path:
-        sys.path.insert(0, path)
-EOM
 
 
 "------------------------------------
@@ -89,6 +22,7 @@ xmap <C-k>     <Plug>(neosnippet_expand_target)
 imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 \ "\<Plug>(neosnippet_expand_or_jump)"
 \: pumvisible() ? "\<C-n>" : "\<TAB>"
+
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 \ "\<Plug>(neosnippet_expand_or_jump)"
 \: "\<TAB>"
@@ -101,14 +35,7 @@ endif
 " Enable snipMate compatibility feature.
 let g:neosnippet#enable_snipmate_compatibility = 1
 
-" Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory='~/.vim/plugged/vim-snippets/snippets'
 
-
-"------------------------------------
-" SmartInput/SmartChr TODO: Rewrite this ...
-"------------------------------------
-" TODO
 
 "------------------------------------
 " NERD_commenter.vim
@@ -119,14 +46,18 @@ let NERDSpaceDelims = 1
 let NERDShutUp = 1
 
 
+
 "-----------------------------------
 " syntastic
 "-----------------------------------
 " ファイルオープン時はチェックしない(ファイル保存時にチェックする)
 let g:syntastic_check_on_open = 0
-let g:syntastic_mode_map = { "mode": "active",
-                           \ "active_filetypes": [],
-                           \ "passive_filetypes": ["scala"] }
+let g:syntastic_mode_map = {
+      \"mode": "active",
+      \"active_filetypes": [],
+      \"passive_filetypes": ["scala"]
+\}
+
 
 
 "-----------------------------------
@@ -135,6 +66,7 @@ let g:syntastic_mode_map = { "mode": "active",
 " 検索時に移動しない
 map * <Plug>(visualstar-*)N
 map # <Plug>(visualstar-#)N
+
 
 
 "-----------------------------------
@@ -223,4 +155,5 @@ let g:precious_enable_switchers = {
 \   "setfiletype" : 1
 \ },
 \}
+
 
