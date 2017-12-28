@@ -31,24 +31,18 @@ Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
 Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
 Plug 'mattn/emmet-vim'
 Plug 'mustache/vim-mustache-handlebars', { 'for': 'hbs' }
-Plug 'timcharper/textile.vim'
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby'}
 Plug 'wting/rust.vim', { 'for': 'rust' }
-Plug 'leafgarland/typescript-vim'
-Plug 'dag/vim-fish'
 Plug 'idris-hackers/idris-vim'
 
 " Text Objects
-Plug 'kana/vim-textobj-indent'
-Plug 'kana/vim-textobj-user'
 Plug 'tpope/vim-surround'
 
 
 " Colorschemes
 Plug 'tanacasino/seoul256.vim'
 Plug 'tanacasino/papercolor-theme', { 'branch': 'custom' }
-Plug 'ujihisa/unite-colorscheme'
 
 
 " Others
@@ -69,7 +63,6 @@ Plug 'vim-scripts/matchit.zip'
 Plug 'osyo-manga/vim-precious'
 Plug 'vim-scripts/quickrun.vim'
 Plug 'scrooloose/syntastic'
-Plug 'vim-scripts/sudo.vim'
 Plug 'thinca/vim-ref', { 'on': 'Ref' }
 Plug 'thinca/vim-visualstar'
 Plug 'tpope/vim-fugitive'
