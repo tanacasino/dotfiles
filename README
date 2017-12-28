@@ -1,12 +1,6 @@
 # README
 
-Setup My Environment
+Setup My Dotfiles
 
     ./setup.sh
-
-    # with apt-get install apt-packages (Ubuntu Only)
-    ./setup.sh -a
-
-    # with apt-get install apt-desktop-packages (Ubuntu Only)
-    ./setup.sh -a -x
 
