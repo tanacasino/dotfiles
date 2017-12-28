@@ -5,16 +5,16 @@ call plug#begin('~/.vim/plugged')
 
 
 " Basic tools
+" TODO(tanacasino): vimprocが必要か調査する
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-Plug 'Shougo/unite.vim'
+Plug 'Shougo/denite.nvim'
 Plug 'Shougo/neomru.vim'
-Plug 'Shougo/vimfiler'
-Plug 'Shougo/vimshell'
 
-Plug 'mattn/webapi-vim'
+" Webブラウザを開く :OpenBrowser, :OpenBrowserSearch
 Plug 'tyru/open-browser.vim'
 
 " Auto Complete/Snippets
+" TODO(tanacasino): deopleteに移行する
 Plug 'Shougo/neocomplete'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
@@ -25,7 +25,6 @@ Plug 'honza/vim-snippets'
 Plug 'ap/vim-css-color', { 'for': 'css' }
 Plug 'derekwyatt/vim-sbt'
 Plug 'derekwyatt/vim-scala'
-"Plug 'ensime/ensime-vim', { 'for': 'scala' }
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
 Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
@@ -46,20 +45,18 @@ Plug 'tanacasino/papercolor-theme', { 'branch': 'custom' }
 
 
 " Others
+" TODO(tanacasino): 整理する
+Plug 'ryanoasis/vim-devicons'
 Plug 'vim-scripts/L9'
-Plug 'Shougo/context_filetype.vim'
-Plug 'vim-scripts/The-NERD-Commenter'
+Plug 'scrooloose/nerdtree'
 Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-airline'
-Plug 'easymotion/vim-easymotion'
-Plug 'haya14busa/incsearch-fuzzy.vim'
-Plug 'haya14busa/incsearch.vim'
 Plug 'houtsnip/vim-emacscommandline'
 Plug 'kana/vim-smartchr'
 Plug 'kana/vim-smartinput'
-Plug 'lambdalisue/unite-grep-vcs'
 Plug 'majutsushi/tagbar'
 Plug 'vim-scripts/matchit.zip'
+Plug 'Shougo/context_filetype.vim'
 Plug 'osyo-manga/vim-precious'
 Plug 'vim-scripts/quickrun.vim'
 Plug 'scrooloose/syntastic'
