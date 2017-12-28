@@ -22,13 +22,12 @@ scm_prompt() {
 }
 
 tanacasino_prompt() {
-    ps_host="${bold_blue}\h${normal}";
-    ps_user="${green}\u${normal}";
-    ps_user_mark="${red}❯ ${normal}";
-    #ps_user_mark="${green}❯ ${normal}";
-    ps_root="${red}\u${red}";
-    ps_root_mark="${red}# ${normal}"
-    ps_path="${yellow}\w${normal}";
+    local ps_host="${bold_blue}\h${normal}";
+    local ps_user="${green}\u${normal}";
+    local ps_user_mark="${bold_purple}$ ${normal}";
+    local ps_root="${red}\u${red}";
+    local ps_root_mark="${red}# ${normal}"
+    local ps_path="${yellow}\w${normal}";
 
     # make it work
     case $(id -u) in

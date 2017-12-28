@@ -71,6 +71,8 @@ alias lh='ll -h'
 alias lla='ls -AlF'
 
 # git
+alias g='git'
+alias gg='git grep'
 alias ggpush='git push origin $(git_branch_name)'
 alias ggpushf='git push -f origin $(git_branch_name)'
 
