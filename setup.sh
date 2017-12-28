@@ -12,8 +12,6 @@ function usage {
     echo "Usage: $0 [OPTION]..."
     echo "Setup Environment"
     echo ""
-    echo "  -a, --apt          Install apt-packages"
-    echo "  -X, --xapt         Install apt-desktop-packages"
     echo "  -V, --no-vim       No install vim settings"
     echo "  -G, --no-git       No install git settings"
     echo "  -h, --help         Print this usage message"
@@ -25,8 +23,6 @@ function usage {
 #########################
 function process_args {
     case "$1" in
-        -a|--apt)          apt=1;;
-        -x|--xapt)         xapt=1;;
         -V|--no-vim)       vim=0;;
         -G|--no-git)       git=0;;
         -h|--help)         usage; exit 0;;
@@ -34,8 +30,6 @@ function process_args {
     esac
 }
 
-apt=0
-xapt=0
 vim=1
 git=1
 
@@ -47,15 +41,6 @@ done
 #########################
 # funtions
 #########################
-function is_ubuntu() {
-    if [ -x $(which lsb_release 2>/dev/null) ]; then
-        if [ "Ubuntu" = $(lsb_release -i -s) ]; then
-            return 0
-        fi
-    fi
-    return 1
-}
-
 function linkit() {
     if [ $(uname) = 'Darwin' ]; then
         gln -is "$CONF_HOME/$1" $2 || return 1
@@ -65,34 +50,10 @@ function linkit() {
     return 0
 }
 
-function apt_install() {
-    grep -v ^# $1 | grep -v ^$ | xargs sudo apt-get install -y || return 1
-    return 0
-}
-
-
-#########################
-# Install packages
-#########################
-if [ is_ubuntu ]; then
-    [[ $apt  -eq 1 ]] && apt_install apt-packages
-    [[ $xapt -eq 1 ]] && apt_install apt-desktop-packages
-fi
-
 
 #########################
 # Conf files
 #########################
-### zsh ###
-linkit .zshrc $HOME/
-linkit .zsh $HOME/
-
-ZPLUG_DIR="$HOME/.zplug"
-if [ ! -d "$ZPLUG_DIR" ]; then
-    git clone https://github.com/b4b4r07/zplug "$ZPLUG_DIR"
-fi
-
-
 ### vim ###
 VIMFILES=".vim .vimrc* .gvimrc"
 for dotfile in $VIMFILES; do
@@ -108,17 +69,6 @@ if [ ! -d "$TMUX_PLUGINS_DIR/tpm" ]; then
     $(cd "$TMUX_PLUGINS_DIR" && git clone https://github.com/tmux-plugins/tpm)
 fi
 
-
-### fish ###
-FISH_CONFIG_DIR="$HOME/.config/fish"
-FISHER_MAN_FUNCTION="$FISH_CONFIG_DIR/functions/fisher.fish"
-mkdir -p "$FISH_CONFIG_DIR"
-if [ ! -f "$FISHER_MAN_FUNCTION" ]; then
-    curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
-fi
-linkit fish/config.fish "$FISH_CONFIG_DIR/config.fish"
-linkit fish/fishfile "$FISH_CONFIG_DIR/fishfile"
-fish -c "fisher" || true
 
 ### bash_it ###
 BASH_IT_DIR="$HOME/.bash_it"
