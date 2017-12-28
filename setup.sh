@@ -77,7 +77,7 @@ if [ ! -d "$BASH_IT_DIR" ]; then
 fi
 
 ### Others(bash, git, hg, screen) ###
-DOTFILES=".bashrc .bash_profile .inputrc .gitconfig .hgrc .dir_colors .screenrc"
+DOTFILES=".bashrc .bash_profile .inputrc .gitconfig .hgrc .dir_colors .screenrc .sbtrc"
 for dotfile in $DOTFILES; do
     linkit $dotfile $HOME/
 done
