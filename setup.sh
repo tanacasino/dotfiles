@@ -59,6 +59,11 @@ VIMFILES=".vim .vimrc* .gvimrc"
 for dotfile in $VIMFILES; do
     linkit $dotfile $HOME/
 done
+#
+# for deoplete
+# $ brew install python3
+# $ pip3 install neovim
+#
 
 
 ### tmux ###
