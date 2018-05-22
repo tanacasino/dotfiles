@@ -16,6 +16,11 @@ set smartcase
 set nowrapscan
 
 
+" bell
+set visualbell
+set noerrorbells
+
+
 "x キー削除でデフォルトレジスタに入れない
 nnoremap x "_x
 vnoremap x "_x
