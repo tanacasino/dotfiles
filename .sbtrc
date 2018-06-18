@@ -14,3 +14,5 @@ alias toc=~test-only
 alias tq=test-quick
 alias tqc=~test-quick
 
+alias coffeBreak=;cd / ;clean ;update ;tc
+
