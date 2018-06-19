@@ -8,11 +8,11 @@ alias cc=~compile
 alias tc=test:compile
 alias tcc=~test:compile
 
-alias to=test-only
-alias toc=~test-only
+alias to=testOnly
+alias toc=~testOnly
 
-alias tq=test-quick
-alias tqc=~test-quick
+alias tq=testQuick
+alias tqc=~testQuick
 
 alias coffeBreak=;cd / ;clean ;update ;tc
 
