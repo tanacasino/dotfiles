@@ -10,3 +10,4 @@
 sbt/plugins/project
 sbt/plugins/target
 
+vendor

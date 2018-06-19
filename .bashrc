@@ -1,80 +1,94 @@
 #!/usr/bin/env bash
+#
+# bash configuration
+#
 
+if ((BASH_VERSINFO[0] < 4)); then
+    echo -e "Older version of Bash. At least bash-4.0."
+    echo -e "BASH_VERSION: $BASH_VERSION"
+fi
 
-function check_bash_version() {
-    echo 'hello'
-}
-
-GIT_REPO_ROOT="$HOME/devel/src"
-DOTFILES_HOME="$GIT_REPO_ROOT/github.com/tanacasino/dotfiles"
-
-
-##############################
-## sensible.bash
-##############################
-source "$GIT_REPO_ROOT/github.com/mrzool/bash-sensible/sensible.bash"
-
+DOTFILES_HOME=$(cd $(dirname $(readlink "${BASH_SOURCE:-$0}")) && pwd)
 
 ##############################
-## bash-powerline
+## install thirdparty libs
 ##############################
-source "$GIT_REPO_ROOT/github.com/riobard/bash-powerline/bash-powerline.sh"
+mkdir -p "$DOTFILES_HOME/vendor"
+# composure
+if [ -f "$DOTFILES_HOME/vendor/composure/composure.sh" ]; then
+    source "$DOTFILES_HOME/vendor/composure/composure.sh"
+else
+    git clone https://github.com/erichs/composure.git "$DOTFILES_HOME/vendor/composure"
+    source "$DOTFILES_HOME/vendor/composure/composure.sh"
+fi
+
+# sensible.bash
+if [ -f "$DOTFILES_HOME/vendor/bash-sensible/sensible.bash" ]; then
+    source "$DOTFILES_HOME/vendor/bash-sensible/sensible.bash"
+else
+    git clone https://github.com/mrzool/bash-sensible.git "$DOTFILES_HOME/vendor/bash-sensible"
+    source "$DOTFILES_HOME/vendor/bash-sensible/sensible.bash"
+fi
+
+# bash-powerline
+if [ -f "$DOTFILES_HOME/vendor/bash-powerline/bash-powerline.sh" ]; then
+    source "$DOTFILES_HOME/vendor/bash-powerline/bash-powerline.sh"
+else
+    git clone https://github.com/riobard/bash-powerline.git "$DOTFILES_HOME/vendor/bash-powerline"
+    source "$DOTFILES_HOME/vendor/bash-powerline/bash-powerline.sh"
+fi
 
 
 ##############################
 ## PATH
 ##############################
 export PATH_OLD="$PATH"
-# TODO(tanacasino): 適当すぎるやつ。PATHの順序と重複の取り除きをやりたいだけなので、それができるようにするべき。
 export PATH="/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 
 
-##############################
-## Load settings
-##############################
-
-source "$DOTFILES_HOME/bash.d/git.bash"
-
-##############################
-## fasd
-##############################
-eval "$(fasd --init auto)"
-
-
-
+#############################
+# Key binding
+#############################
+stty werase undef
+bind '"\C-w": backward-kill-word'
 
 
 ##############################
-## Bash-it
+## Completion
 ##############################
-## Path to the bash it configuration
-#export BASH_IT="$HOME/.bash_it"
-#
-#export BASH_IT_THEME='tanacasino'
-#
-## Don't check mail when opening terminal.
-#unset MAILCHECK
-#
-## Set this to false to turn off version control status checking within the prompt for all themes
-#export SCM_CHECK=true
-#
-## Set Xterm/screen/Tmux title with only a short hostname.
-## Unomment this (or set SHORT_HOSTNAME to something else),
-## Will otherwise fall back on $HOSTNAME.
-#export SHORT_HOSTNAME=$(hostname -s)
-#
-#export BASH_IT_CUSTOM="$HOME/devel/src/github.com/tanacasino/dotfiles/bash_it_custom"
-#
-#export PATH_BACKUP="$PATH"
-#
-## TODO(tanacasino): 適当すぎるやつ。PATHの順序と重複の取り除きをやりたいだけなので、それができるようにするべき。
-#export PATH="/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-#
-## Load Bash It
-#source $BASH_IT/bash_it.sh
-#
-## Load local config
-#if [ -f ~/.bashrc.local ]; then
-#    source ~/.bashrc.local
-#fi
-#
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    source $(brew --prefix)/etc/bash_completion
+fi
+
+
+#############################
+# Aliases
+#############################
+# basic
+if ls --color -d . &> /dev/null; then
+    alias ls="ls --color=auto"
+elif ls -G -d . &> /dev/null; then
+    alias ls='ls -G'        # Compact view, show colors
+fi
+alias l='ls'
+alias lh='ll -h'
+alias la='ls -a'
+alias lla='ls -AlF'
+
+alias vissh='vim $HOME/.ssh/config'
+
+
+##############################
+## Load lib
+##############################
+for lib in "${DOTFILES_HOME}/lib/"*.bash; do
+    source "$lib"
+done
+
+
+##############################
+## Load local configuration
+##############################
+if [ -f "$HOME/.bashrc.local" ]; then
+    source "$HOME/.bashrc.local"
+fi
