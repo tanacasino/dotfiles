@@ -65,10 +65,12 @@ fi
 # Aliases
 #############################
 # basic
-if ls --color -d . &> /dev/null; then
+if command -v gls &> /dev/null; then
+    alias ls='gls --color=auto'
+elif ls --color -d . &> /dev/null; then
     alias ls="ls --color=auto"
 elif ls -G -d . &> /dev/null; then
-    alias ls='ls -G'        # Compact view, show colors
+    alias ls='ls -G'
 fi
 alias l='ls'
 alias lh='ll -h'
