@@ -1,5 +1,6 @@
+#!/usr/bin/env bash
 ##############################
-## golang
+# golang
 ##############################
 
 export GOPATH="$HOME/devel"

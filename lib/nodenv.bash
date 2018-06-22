@@ -1,5 +1,6 @@
+#!/usr/bin/env bash
 ##############################
-## nodenv
+# nodenv
 ##############################
 if command -v nodenv &> /dev/null; then
     eval "$(nodenv init -)"

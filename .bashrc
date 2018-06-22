@@ -6,42 +6,30 @@
 if ((BASH_VERSINFO[0] < 4)); then
     echo -e "Older version of Bash. At least bash-4.0."
     echo -e "BASH_VERSION: $BASH_VERSION"
+    echo -e "$ brew install bash"
 fi
 
 DOTFILES_HOME=$(cd $(dirname $(readlink "${BASH_SOURCE:-$0}")) && pwd)
+
 
 ##############################
 ## install thirdparty libs
 ##############################
 mkdir -p "$DOTFILES_HOME/vendor"
-# composure
-function __load_composure() {
-    local composure_dir="$DOTFILES_HOME/vendor/composure"
-    local composure_script="${composure_dir}/composure.sh"
-    if [ -f "$composure_script" ]; then
-        source "$composure_script"
+function __load_vendor() {
+    local git_dir="$1"
+    local script_file="$2"
+    local git_remote="$3"
+    if [ -f "${git_dir}/$script_file" ]; then
+        source "${git_dir}/$script_file"
     else
-        git clone https://github.com/erichs/composure.git "$composure_dir"
-        source "$composure_script"
+        git clone "$git_remote" "$git_dir"
+        source "${git_dir}/$script_file"
     fi
 }
-__load_composure
-unset __load_composure
-
-
-# sensible.bash
-function __load_sensible() {
-    local sensible_dir="$DOTFILES_HOME/vendor/bash-sensible"
-    local sensible_script="$sensible_dir/sensible.bash"
-    if [ -f "$sensible_script" ]; then
-        source "$sensible_script"
-    else
-        git clone https://github.com/mrzool/bash-sensible.git "$sensible_dir"
-        source "$sensible_script"
-    fi
-}
-__load_sensible
-unset __load_sensible
+__load_vendor "$DOTFILES_HOME/vendor/composure" "composure.sh" "https://github.com/erichs/composure.git"
+__load_vendor "$DOTFILES_HOME/vendor/bash-sensible" "sensible.bash" "https://github.com/mrzool/bash-sensible.git"
+unset __load_vendor
 
 
 ##############################
@@ -58,47 +46,30 @@ stty werase undef
 bind '"\C-w": backward-kill-word'
 
 
-##############################
-## Completion
-##############################
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-    source $(brew --prefix)/etc/bash_completion
-else
-    echo -e "You must install bash-completion"
-    echo -e "brew install bash-completion"
-fi
-
-
 #############################
 # Aliases
 #############################
-# basic
-if command -v gls &> /dev/null; then
-    alias ls='gls --color=auto'
-elif ls --color -d . &> /dev/null; then
-    alias ls="ls --color=auto"
-elif ls -G -d . &> /dev/null; then
-    alias ls='ls -G'
-fi
-alias l='ls'
-alias lh='ll -h'
-alias la='ls -a'
-alias lla='ls -AlF'
-
-alias vissh='vim $HOME/.ssh/config'
+function __load_alias() {
+    local alias_script
+    for alias_script in "${DOTFILES_HOME}/alias/"*.bash; do
+        source "$alias_script"
+    done
+}
+__load_alias
+unset __load_alias
 
 
 ##############################
 ## Load lib
 ##############################
-for lib in "${DOTFILES_HOME}/lib/"*.bash; do
-    source "$lib"
+for lib_script in "${DOTFILES_HOME}/lib/"*.bash; do
+    source "$lib_script"
 done
-unset lib
+unset lib_script
 
 
 ##############################
-## Prompt powerline-go
+## Prompt
 ##############################
 source "${DOTFILES_HOME}/prompt/powerline-go.bash"
 

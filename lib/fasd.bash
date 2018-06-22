@@ -1,5 +1,6 @@
+#!/usr/bin/env bash
 ##############################
-## fasd
+# fasd
 ##############################
 if command -v fasd &> /dev/null; then
     eval "$(fasd --init auto)"
