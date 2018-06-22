@@ -1,7 +1,7 @@
 ##############################
 ## nodenv
 ##############################
-if which nodenv > /dev/null 2>&1; then
+if command -v nodenv &> /dev/null; then
     eval "$(nodenv init -)"
 fi
 

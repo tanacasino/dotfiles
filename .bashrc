@@ -15,28 +15,33 @@ DOTFILES_HOME=$(cd $(dirname $(readlink "${BASH_SOURCE:-$0}")) && pwd)
 ##############################
 mkdir -p "$DOTFILES_HOME/vendor"
 # composure
-if [ -f "$DOTFILES_HOME/vendor/composure/composure.sh" ]; then
-    source "$DOTFILES_HOME/vendor/composure/composure.sh"
-else
-    git clone https://github.com/erichs/composure.git "$DOTFILES_HOME/vendor/composure"
-    source "$DOTFILES_HOME/vendor/composure/composure.sh"
-fi
+function __load_composure() {
+    local composure_dir="$DOTFILES_HOME/vendor/composure"
+    local composure_script="${composure_dir}/composure.sh"
+    if [ -f "$composure_script" ]; then
+        source "$composure_script"
+    else
+        git clone https://github.com/erichs/composure.git "$composure_dir"
+        source "$composure_script"
+    fi
+}
+__load_composure
+unset __load_composure
+
 
 # sensible.bash
-if [ -f "$DOTFILES_HOME/vendor/bash-sensible/sensible.bash" ]; then
-    source "$DOTFILES_HOME/vendor/bash-sensible/sensible.bash"
-else
-    git clone https://github.com/mrzool/bash-sensible.git "$DOTFILES_HOME/vendor/bash-sensible"
-    source "$DOTFILES_HOME/vendor/bash-sensible/sensible.bash"
-fi
-
-# bash-powerline
-if [ -f "$DOTFILES_HOME/vendor/bash-powerline/bash-powerline.sh" ]; then
-    source "$DOTFILES_HOME/vendor/bash-powerline/bash-powerline.sh"
-else
-    git clone https://github.com/riobard/bash-powerline.git "$DOTFILES_HOME/vendor/bash-powerline"
-    source "$DOTFILES_HOME/vendor/bash-powerline/bash-powerline.sh"
-fi
+function __load_sensible() {
+    local sensible_dir="$DOTFILES_HOME/vendor/bash-sensible"
+    local sensible_script="$sensible_dir/sensible.bash"
+    if [ -f "$sensible_script" ]; then
+        source "$sensible_script"
+    else
+        git clone https://github.com/mrzool/bash-sensible.git "$sensible_dir"
+        source "$sensible_script"
+    fi
+}
+__load_sensible
+unset __load_sensible
 
 
 ##############################
@@ -68,10 +73,12 @@ fi
 # Aliases
 #############################
 # basic
-if ls --color -d . &> /dev/null; then
+if command -v gls &> /dev/null; then
+    alias ls='gls --color=auto'
+elif ls --color -d . &> /dev/null; then
     alias ls="ls --color=auto"
 elif ls -G -d . &> /dev/null; then
-    alias ls='ls -G'        # Compact view, show colors
+    alias ls='ls -G'
 fi
 alias l='ls'
 alias lh='ll -h'
@@ -87,6 +94,13 @@ alias vissh='vim $HOME/.ssh/config'
 for lib in "${DOTFILES_HOME}/lib/"*.bash; do
     source "$lib"
 done
+unset lib
+
+
+##############################
+## Prompt powerline-go
+##############################
+source "${DOTFILES_HOME}/prompt/powerline-go.bash"
 
 
 ##############################
