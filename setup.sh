@@ -75,14 +75,8 @@ if [ ! -d "$TMUX_PLUGINS_DIR/tpm" ]; then
 fi
 
 
-### bash_it ###
-BASH_IT_DIR="$HOME/.bash_it"
-if [ ! -d "$BASH_IT_DIR" ]; then
-    git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
-fi
-
 ### Others(bash, git, hg, screen) ###
-DOTFILES=".bashrc .bash_profile .inputrc .gitconfig .hgrc .dir_colors .screenrc .sbtrc"
+DOTFILES=".bashrc .bash_profile .inputrc .gitconfig .dir_colors .screenrc .sbtrc .ideavimrc"
 for dotfile in $DOTFILES; do
     linkit $dotfile $HOME/
 done
