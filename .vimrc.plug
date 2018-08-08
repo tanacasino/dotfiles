@@ -24,7 +24,6 @@ Plug 'Shougo/neosnippet-snippets'
 Plug 'ap/vim-css-color', { 'for': 'css' }
 Plug 'derekwyatt/vim-sbt'
 Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
-Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
 Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
 Plug 'mattn/emmet-vim', { 'for': 'html' }
@@ -33,6 +32,8 @@ Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby'}
 Plug 'wting/rust.vim', { 'for': 'rust' }
 Plug 'idris-hackers/idris-vim'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
 
 " Text Objects
 Plug 'tpope/vim-surround'
