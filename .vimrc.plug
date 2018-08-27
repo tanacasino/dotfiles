@@ -33,6 +33,9 @@ Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby'}
 Plug 'wting/rust.vim', { 'for': 'rust' }
 Plug 'idris-hackers/idris-vim'
+Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
+Plug 'digitaltoad/vim-pug'
+
 
 " Text Objects
 Plug 'tpope/vim-surround'
