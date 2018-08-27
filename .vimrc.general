@@ -8,6 +8,7 @@
 " シンタックスハイライト
 syntax on
 " ファイルタイププラグライン
+filetype on
 filetype plugin on
 " ファイルタイププラグインによるインデント
 filetype plugin indent on

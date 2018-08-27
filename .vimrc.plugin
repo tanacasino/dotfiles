@@ -55,8 +55,10 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_mode_map = {
       \"mode": "active",
       \"active_filetypes": [],
-      \"passive_filetypes": ["scala"]
+      \"passive_filetypes": ["scala", "go"]
 \}
+
+let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 
 
 

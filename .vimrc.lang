@@ -46,9 +46,3 @@ if has("autocmd")
   endfunction
 endif
 
-
-"-----------------------------------
-" Golang
-"-----------------------------------
-auto BufWritePre *.go Fmt
-
