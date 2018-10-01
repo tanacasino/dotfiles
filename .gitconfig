@@ -22,7 +22,7 @@
 	excludesfile = ~/.gitignore
 	editor = vim
 	autoCRLF = false
-	pager = less -SRFX
+	pager = less -RFX
 
 [diff]
 	indentHeuristic = on
