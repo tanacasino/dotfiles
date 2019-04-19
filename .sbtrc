@@ -14,5 +14,8 @@ alias toc=~testOnly
 alias tq=testQuick
 alias tqc=~testQuick
 
-alias coffeBreak=;cd / ;clean ;update ;tc
+# all compile
+alias ac=;compile ;test:compile ;it:compile
+
+alias coffeeBreak=;cd / ;clean ;update ;tc
 
