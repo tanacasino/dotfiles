@@ -36,7 +36,7 @@ unset __load_vendor
 ## PATH
 ##############################
 export PATH_OLD="$PATH"
-export PATH="$HOME/bin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+export PATH="$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 
 
 #############################
