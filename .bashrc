@@ -62,16 +62,21 @@ unset __load_alias
 ##############################
 ## Load lib
 ##############################
-for lib_script in "${DOTFILES_HOME}/lib/"*.bash; do
-    source "$lib_script"
-done
-unset lib_script
+function __load_lib(){
+    local lib_script
+    for lib_script in "${DOTFILES_HOME}/lib/"*.bash; do
+        source "$lib_script"
+    done
+}
+__load_lib
+unset __load_lib
 
 
 ##############################
 ## Prompt
 ##############################
-source "${DOTFILES_HOME}/prompt/powerline-go.bash"
+#source "${DOTFILES_HOME}/prompt/powerline-go.bash"
+source "${DOTFILES_HOME}/prompt/starship.bash"
 
 
 ##############################
