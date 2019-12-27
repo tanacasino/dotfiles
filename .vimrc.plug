@@ -8,17 +8,15 @@ call plug#begin('~/.vim/plugged')
 Plug 'Shougo/denite.nvim'
 Plug 'Shougo/neomru.vim'
 
+
 " Webブラウザを開く :OpenBrowser, :OpenBrowserSearch
 Plug 'tyru/open-browser.vim'
 
-" 補完 deopleteと依存ライブラリ
-" NOTE(tanacasino): 別途 pip3 install neovim が必要な点に注意
-Plug 'Shougo/deoplete.nvim'
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
+
 " スニペット
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
+
 
 " Language
 Plug 'ap/vim-css-color', { 'for': 'css' }
@@ -35,6 +33,14 @@ Plug 'idris-hackers/idris-vim'
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 Plug 'digitaltoad/vim-pug'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+
+" LSP
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
 
 
 " Text Objects
